@@ -1,6 +1,21 @@
 @import url("./desktop-source.css") screen and (min-width: 1024px);
 
 @media (min-width: 1024px) {
+  body {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    align-items: initial;
+    justify-content: initial;
+  }
+
+  #desktop-shell,
+  #scrollzone,
+  #viewport {
+    width: 100%;
+    min-width: 0;
+  }
+
   #desktop-shell { display: block; }
   #desktop-footer > footer { display: block; }
 
