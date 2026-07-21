@@ -164,24 +164,33 @@
   <section id="view-collection" class="view active">
 
     <header class="top-header">
-      <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      <a href="#home" class="logo-home" aria-label="Twinstudio home">
+        <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      </a>
       <button class="burger menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </header>
 
     <div class="title-wrap">
-      <img class="title-lockup" src="/assets/mobile/title-base.png" alt="Collection">
-      <img class="doodle paw" src="/assets/mobile/doodle-paw.png" alt="">
-      <img class="doodle face" src="/assets/mobile/doodle-face.png" alt="">
+      <picture class="title-lockup-picture">
+        <source media="(min-width: 1024px)" srcset="/assets/desktop/collection-title.svg" type="image/svg+xml">
+        <img class="title-lockup" src="/assets/mobile/title-base.png" alt="Collection">
+      </picture>
+      <img class="doodle paw" src="/assets/shared/animations/doodle-paw.svg" alt="">
+      <img class="doodle face" src="/assets/shared/animations/doodle-face.svg" alt="">
     </div>
 
     <div class="slogan-block">
       <div class="slogan-wrap">
-        <img class="slogan-base" src="/assets/mobile/slogan-text.png" alt="(Pet-human goods) Thoughtfully designed. Objects for moments we shared. Shop now.">
-        <img class="doodle dog" src="/assets/mobile/toy-dog.svg" alt="">
-        <img class="doodle bear" src="/assets/mobile/toy-bear.svg" alt="">
-        <img class="doodle shop" src="/assets/mobile/toy-shop.svg" alt="">
+        <picture class="slogan-base-picture">
+          <source media="(min-width: 1024px)" srcset="/assets/desktop/collection-slogan.svg" type="image/svg+xml">
+          <img class="slogan-base" src="/assets/mobile/slogan-text.png" alt="(Pet-human goods) Thoughtfully designed. Objects for moments we shared. Shop now.">
+        </picture>
+        <img class="doodle dog" src="/assets/shared/animations/toy-dog.svg" alt="">
+        <img class="doodle bear" src="/assets/shared/animations/toy-bear.svg" alt="">
+        <img class="doodle shop" src="/assets/shared/animations/toy-shop.svg" alt="">
         <a class="shopnow-hotspot" href="#" onclick="return false" aria-label="Shop now"></a>
       </div>
+      <a class="shopnow-desktop" href="#footer" aria-label="Shop now">SHOP NOW <span aria-hidden="true">→</span></a>
     </div>
 
     <div class="cat-strip" role="presentation"></div>
@@ -289,7 +298,9 @@
   <section id="view-story" class="view">
 
     <header class="top-header">
-      <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      <a href="#home" class="logo-home" aria-label="Twinstudio home">
+        <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      </a>
       <button class="burger menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </header>
 

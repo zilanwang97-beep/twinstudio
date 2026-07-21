@@ -12,8 +12,8 @@
   }
   img{display:block;-webkit-user-drag:none;user-select:none;}
 
-  /* ---------- fixed header ---------- */
-  header{
+  /* ---------- fixed header (home shell only; do not affect .top-header) ---------- */
+  #desktop-shell > header{
     position:fixed;inset:0 0 auto 0;height:0;z-index:60;
   }
   #hLogo{

@@ -5,4 +5,10 @@
   .app-frame { width: 100%; min-height: 100dvh; height: auto; overflow: visible; }
   .marker { font-family: "Pizza Marker", cursive; }
   .view.active { display: block; }
+
+  /* Keep mobile Collection cards visually identical after section-panel markup */
+  .section-visual { position: absolute; inset: 0; }
+  .section-panel { display: contents; }
+  .section-desc { display: none; }
+  .shopnow-desktop { display: none; }
 }

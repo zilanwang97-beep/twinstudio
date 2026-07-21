@@ -30,6 +30,7 @@
 
   .app-frame > .menu-anchor { display: block; }
   .app-frame .top-header { height: 112px; padding: 0 5vw; }
+  .app-frame .top-header .logo-home { display: flex; align-items: center; }
   .app-frame .top-header .logo-badge { height: 72px; width: auto; }
   .app-frame .burger { width: 52px; height: 42px; }
   .app-frame .burger span { width: 43px; height: 5px; }
@@ -38,22 +39,297 @@
   .app-frame .menu-links { right: 5vw; top: 105px; gap: 14px; }
   .app-frame .menu-links a { font-size: 18px; }
 
-  .app-frame .title-wrap,
-  .app-frame .slogan-block,
   .app-frame .story-title-wrap,
   .app-frame .story-slogan-wrap { max-width: 1440px; margin-inline: auto; }
 
-  .app-frame .sections {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0;
-    padding: 7vw 0 0;
+  /* ===== Collection desktop (Figma: hero + alternating text/image rows) ===== */
+  .app-frame #view-collection .title-wrap {
+    position: relative;
+    max-width: 920px;
+    margin: 2.5vw auto 0;
+    padding-inline: 4vw;
+    /* Match .title-lockup width so doodle %/calc track the SVG */
+    --title-w: min(100%, 620px);
   }
-  .app-frame .section-card { min-height: 46vw; }
-  .app-frame .section-card img { width: 100%; height: 100%; object-fit: cover; }
-  .app-frame .section-slogan { font-size: clamp(40px, 4.7vw, 76px); }
-  .app-frame .section-caption { font-size: clamp(26px, 3vw, 48px); }
-  .app-frame .explore-btn { font-size: 15px; padding: 13px 18px; }
+  .app-frame #view-collection .title-lockup {
+    width: min(100%, 620px);
+    margin-inline: auto;
+  }
+
+  /* Title doodles — aligned to desktop collection-title.svg letterforms */
+  .app-frame #view-collection .title-wrap .doodle.paw {
+    display: block;
+    left: calc(50% - (var(--title-w) * 0.5) + (var(--title-w) * 0.678));
+    top: 4%;
+    width: calc(var(--title-w) * 0.042);
+    transform-origin: 50% 96%;
+    animation: pawWave 2.2s ease-in-out infinite;
+  }
+  .app-frame #view-collection .title-wrap .doodle.face {
+    display: block;
+    left: calc(50% - (var(--title-w) * 0.5) + (var(--title-w) * 0.738));
+    top: 40%;
+    width: calc(var(--title-w) * 0.095);
+    transform-origin: 50% 65%;
+    animation: headShake 3.8s ease-in-out infinite;
+  }
+
+  .app-frame #view-collection .slogan-block {
+    max-width: 980px;
+    margin: 1.2vw auto 0;
+    padding-inline: 4vw;
+    text-align: center;
+  }
+  .app-frame #view-collection .slogan-wrap {
+    position: relative;
+    width: min(100%, 860px);
+    margin-inline: auto;
+    container-type: inline-size;
+    container-name: collection-slogan;
+  }
+  .app-frame #view-collection .slogan-base {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .app-frame #view-collection .shopnow-hotspot { display: none; }
+  .app-frame #view-collection .shopnow-desktop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    margin: 1.6vw auto 0;
+    padding: 0.7rem 1.25rem;
+    border: 1.5px solid var(--cream);
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+  }
+  .app-frame #view-collection .shopnow-desktop:hover {
+    background: color-mix(in srgb, var(--cream) 12%, transparent);
+  }
+
+  /*
+   * Slogan doodles — % of .slogan-wrap (== slogan SVG box).
+   * dogFallDesktop / shopSquashDesktop stay in sync at 7s.
+   */
+  .app-frame #view-collection .slogan-wrap .doodle.dog {
+    display: block;
+    left: 44%;
+    top: 3%;
+    width: 6.8%;
+    animation: dogFallDesktop 7s ease-in-out infinite;
+  }
+  .app-frame #view-collection .slogan-wrap .doodle.bear {
+    display: block;
+    left: 11%;
+    top: 39%;
+    width: 6%;
+    transform-origin: 50% 92%;
+    animation: bearRock 2.6s ease-in-out infinite;
+  }
+  .app-frame #view-collection .slogan-wrap .doodle.shop {
+    display: block;
+    /* Desktop slogan SVG leaves a gap between WE and SHARED for the shop */
+    left: 58%;
+    top: 50%;
+    width: 15%;
+    transform-origin: 50% 100%;
+    animation: shopSquashDesktop 7s ease-in-out infinite;
+  }
+
+  /* Desktop dog tumble: cqi tracks slogan-wrap width across 1024–1920 */
+  @keyframes dogFallDesktop {
+    0%, 14% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    19% { transform: translate(0.4cqi, -0.5cqi) rotate(-8deg); }
+    25% { transform: translate(1cqi, 0.2cqi) rotate(10deg); }
+    32% { transform: translate(3cqi, 2.2cqi) rotate(60deg); }
+    45% { transform: translate(10cqi, 9cqi) rotate(240deg); }
+    53% { transform: translate(14.5cqi, 15cqi) rotate(360deg); }
+    57% { transform: translate(14.5cqi, 14.2cqi) rotate(356deg); }
+    61%, 84% { transform: translate(14.5cqi, 15cqi) rotate(360deg); opacity: 1; }
+    89% { transform: translate(14.5cqi, 15cqi) rotate(360deg); opacity: 0; }
+    93% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    97%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  }
+  @keyframes shopSquashDesktop {
+    0%, 52%, 60%, 100% { transform: scaleY(1); }
+    55% { transform: scaleY(0.965); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-frame #view-collection .title-wrap .doodle.paw,
+    .app-frame #view-collection .title-wrap .doodle.face,
+    .app-frame #view-collection .slogan-wrap .doodle.dog,
+    .app-frame #view-collection .slogan-wrap .doodle.bear,
+    .app-frame #view-collection .slogan-wrap .doodle.shop {
+      animation: none !important;
+    }
+  }
+
+  .app-frame #view-collection .cat-strip {
+    height: 56px;
+    margin-top: 2.5vw;
+    background-size: auto 100%;
+  }
+
+  .app-frame #view-collection .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+
+  .app-frame #view-collection .section-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    aspect-ratio: auto;
+    min-height: clamp(420px, 42vw, 640px);
+    background: var(--brown);
+    overflow: hidden;
+  }
+  .app-frame #view-collection .section-card:nth-child(odd) .section-panel { order: 1; }
+  .app-frame #view-collection .section-card:nth-child(odd) .section-visual { order: 2; }
+  .app-frame #view-collection .section-card:nth-child(even) .section-visual { order: 1; }
+  .app-frame #view-collection .section-card:nth-child(even) .section-panel { order: 2; }
+
+  .app-frame #view-collection .section-visual {
+    position: relative;
+    min-height: inherit;
+    overflow: hidden;
+    background: #33200a;
+  }
+  .app-frame #view-collection .section-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .app-frame #view-collection .section-slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(88%, 16ch);
+    margin: 0;
+    text-align: center;
+    font-size: clamp(36px, 4.2vw, 68px);
+    line-height: 0.95;
+    color: var(--cream);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .app-frame #view-collection .section-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.4rem;
+    padding: clamp(40px, 5vw, 88px) clamp(36px, 5vw, 96px);
+    background: var(--brown);
+    position: relative;
+  }
+  .app-frame #view-collection .section-caption {
+    position: static;
+    margin: 0;
+    font-size: clamp(42px, 4.8vw, 78px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+  }
+  .app-frame #view-collection .section-desc {
+    display: block;
+    margin: 0;
+    max-width: 34ch;
+    font-family: "Instrument Sans", "Hanken Grotesk", sans-serif;
+    font-size: clamp(15px, 1.15vw, 18px);
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--cream);
+    opacity: 0.92;
+  }
+  .app-frame #view-collection .explore-btn {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-top: 1.6rem;
+    padding: 0.85rem 1.35rem;
+    background: transparent;
+    color: var(--cream);
+    border: 1.5px solid var(--cream);
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    gap: 0.65rem;
+  }
+  .app-frame #view-collection .explore-btn .plus {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+  .app-frame #view-collection .explore-btn:hover {
+    background: color-mix(in srgb, var(--cream) 12%, transparent);
+  }
+
+  .app-frame #view-collection .icon-strip {
+    height: 56px;
+    margin-top: 0;
+    background-image: url("/assets/desktop/footer_strip.svg");
+    background-size: auto 100%;
+  }
+
+  .app-frame #view-collection .site-footer {
+    display: grid;
+    grid-template-columns: minmax(240px, 1.4fr) repeat(3, minmax(120px, 0.8fr));
+    column-gap: 4vw;
+    row-gap: 0.75rem;
+    align-items: start;
+    padding: 5vw 8vw 4vw;
+  }
+  .app-frame #view-collection .footer-logo-img {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(280px, 22vw);
+  }
+  .app-frame #view-collection .footer-tagline {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: clamp(16px, 1.2vw, 20px);
+    margin: 0.4rem 0 0;
+    max-width: 28ch;
+  }
+  .app-frame #view-collection .footer-copy {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 14px;
+    margin: 1.2rem 0 0;
+  }
+  .app-frame #view-collection .site-footer > .footer-col {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+  .app-frame #view-collection .footer-cols-row {
+    display: contents;
+  }
+  .app-frame #view-collection .footer-cols-row .footer-col {
+    margin: 0;
+    grid-row: 1 / span 3;
+  }
+  .app-frame #view-collection .footer-cols-row .footer-col:first-child { grid-column: 3; }
+  .app-frame #view-collection .footer-cols-row .footer-col:last-child { grid-column: 4; }
+  .app-frame #view-collection .footer-col h4 {
+    font-size: 15px;
+    margin-bottom: 1.1rem;
+  }
+  .app-frame #view-collection .footer-col a {
+    font-size: 16px;
+    margin-bottom: 0.7rem;
+  }
 
   .app-frame .tabs-row { height: 80px; padding-inline: 5vw; gap: 3vw; }
   .app-frame .tab-btn { font-size: clamp(14px, 1.3vw, 20px); }

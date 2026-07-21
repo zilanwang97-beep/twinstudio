@@ -40,6 +40,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--cream); outline
 
 #desktop-shell { display: none; }
 
+/* Collection title/slogan <picture> wrappers — preserve existing img sizing */
+.title-lockup-picture,
+.slogan-base-picture { display: block; width: 100%; }
+
 @media (min-width: 1024px) {
   body[data-route="home"] #app-frame,
   body[data-route="philosophy"] #app-frame,
