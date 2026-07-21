@@ -1,0 +1,64 @@
+@import url("./desktop-source.css") screen and (min-width: 1024px);
+
+@media (min-width: 1024px) {
+  #desktop-shell { display: block; }
+  #desktop-footer > footer { display: block; }
+
+  .app-frame {
+    width: 100%;
+    height: 100dvh;
+    max-width: none;
+    overflow-y: auto;
+    container-type: inline-size;
+    background: var(--brown);
+  }
+
+  .app-frame > .menu-anchor { display: block; }
+  .app-frame .top-header { height: 112px; padding: 0 5vw; }
+  .app-frame .top-header .logo-badge { height: 72px; width: auto; }
+  .app-frame .burger { width: 52px; height: 42px; }
+  .app-frame .burger span { width: 43px; height: 5px; }
+
+  .app-frame .menu-overlay { height: clamp(250px, 21vw, 330px); }
+  .app-frame .menu-links { right: 5vw; top: 105px; gap: 14px; }
+  .app-frame .menu-links a { font-size: 18px; }
+
+  .app-frame .title-wrap,
+  .app-frame .slogan-block,
+  .app-frame .story-title-wrap,
+  .app-frame .story-slogan-wrap { max-width: 1440px; margin-inline: auto; }
+
+  .app-frame .sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    padding: 7vw 0 0;
+  }
+  .app-frame .section-card { min-height: 46vw; }
+  .app-frame .section-card img { width: 100%; height: 100%; object-fit: cover; }
+  .app-frame .section-slogan { font-size: clamp(40px, 4.7vw, 76px); }
+  .app-frame .section-caption { font-size: clamp(26px, 3vw, 48px); }
+  .app-frame .explore-btn { font-size: 15px; padding: 13px 18px; }
+
+  .app-frame .tabs-row { height: 80px; padding-inline: 5vw; gap: 3vw; }
+  .app-frame .tab-btn { font-size: clamp(14px, 1.3vw, 20px); }
+  .app-frame .detail-slogan { min-height: 33vw; }
+  .app-frame .detail-slogan h2 { font-size: clamp(72px, 9vw, 150px); }
+  .app-frame .detail-image-wrap { height: 52vw; }
+  .app-frame .grid-wrap { padding: 8vw 5vw 0; }
+  .app-frame .product-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.1vw; }
+  .app-frame .product-card.hidden-item { display: block; }
+  .app-frame .product-meta .pname { font-size: 15px; }
+  .app-frame .product-meta .ptag { font-size: 14px; }
+  .app-frame .load-more-wrap { display: none; }
+
+  .app-frame .story-text { max-width: 900px; margin-inline: auto; font-size: clamp(20px, 1.8vw, 28px); }
+  .app-frame .story-illus { width: min(60vw, 900px); }
+  .app-frame .story-collage { max-width: 1240px; margin-inline: auto; }
+  .app-frame .collage-photo { width: 50%; }
+  .app-frame .collage-caption { width: 50%; }
+  .app-frame .ins-scroller img { flex-basis: 24vw; }
+
+  .app-frame .site-footer { padding-inline: 8vw; }
+  .app-frame .footer-cols-row { gap: 6vw; }
+}

@@ -1,0 +1,9 @@
+:root {
+  --brown: #4c2b08;
+  --cream: #f7ecd8;
+  --cream-soft: #fcf8f0;
+  --tan: #d9b48c;
+  --content-max: 1440px;
+  --desktop-breakpoint: 1024px;
+  --ease-brand: cubic-bezier(.22, .72, .2, 1);
+}

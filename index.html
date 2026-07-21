@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4c2b08">
+  <meta name="description" content="Twinstudio — playful objects, thoughtful design.">
+  <title>Twinstudio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/mobile.css">
+  <link rel="stylesheet" href="/css/desktop.css">
+  <link rel="stylesheet" href="/css/motion.css">
+</head>
+<body>
+  <a class="skip-link" href="#collection">Skip to content</a>
+  <div id="desktop-shell">
+<div id="menuPanel">
+  <img class="bg" src="/assets/desktop/menu_panel.svg" alt="">
+  <nav id="menuLinks">
+    <a href="#story">Story</a>
+    <a href="#lookbook">Lookbook</a>
+    <a href="#collection">Collection</a>
+    <a href="#footer">Shop</a>
+  </nav>
+</div>
+
+<header>
+  <div id="hLogo"><img id="hLogoImg" alt="twinstudio" style="width:100%"></div>
+  <div id="hBack" title="Back">
+    <svg viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+      <path d="M17 3 L6 15 L17 27" stroke="#F7ECD8" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div id="hBurger">
+    <img class="burg" src="/assets/desktop/burger.svg" alt="menu">
+    <img class="chev" src="/assets/desktop/chevron.svg" alt="close">
+  </div>
+</header>
+
+<div id="scrollzone">
+  <div id="viewport">
+    <div id="stage">
+      <!-- falling / hero elements injected by JS -->
+    </div>
+    <div id="wordLayer">
+      <div id="wordmark">
+        <img class="base" src="/assets/desktop/wordmark_base.svg" alt="twinstudio">
+        <img class="wm-part" id="handL" src="/assets/desktop/hand_l.svg" alt="">
+        <img class="wm-part" id="handR" src="/assets/desktop/hand_r.svg" alt="">
+        <img class="wm-part" id="pawSmall" src="/assets/desktop/paw_small.svg" alt="">
+        <img class="wm-part" id="pawTall" src="/assets/desktop/paw_tall.svg" alt="">
+      </div>
+      <div class="rider" id="rider-dachshund">
+        <div class="squash">
+          <img class="pose heropose" src="/assets/desktop/dachshund.svg" style="width:109px;">
+          <img class="pose landpose" src="/assets/desktop/dachshund_land.svg" style="width:130px;">
+        </div>
+      </div>
+      <div class="rider" id="rider-pig">
+        <div class="squash">
+          <img class="pose heropose" src="/assets/desktop/pig.svg" style="width:111px;">
+          <img class="pose landpose" src="/assets/desktop/pig_land.svg" style="width:105px;">
+        </div>
+      </div>
+    </div>
+    <div id="hint">scroll</div>
+  </div>
+</div>
+
+<section id="philosophy">
+  <div class="headingWrap">
+    <img class="heading" src="/assets/desktop/philosophy2.jpg" alt="Some moments don't need to be bigger. They only need to be shared.">
+    <div id="storyBtn" title="Our story"></div>
+  </div>
+  <div id="marquee" class="roll h62"></div>
+</section>
+
+<!-- ================= character ================= -->
+<div id="charZone">
+  <div id="charView">
+    <div id="charStage">
+      <div class="ch" id="chMilo"      style="left:423.9px;top:149.7px;width:604.7px;"><div class="waddle"><img src="/assets/desktop/milo.svg" alt="Milo"></div></div>
+      <div class="ch" id="chPig"       style="left:344.8px;top:639px;width:158.5px;"><img src="/assets/desktop/pig_floor.svg" alt=""></div>
+      <div class="ch" id="chTeddy"     style="left:441.9px;top:742.8px;width:170.4px;"><img src="/assets/desktop/teddy_floor.svg" alt=""></div>
+      <div class="ch" id="chBobo"      style="left:543.4px;top:418.8px;width:422.3px;"><div class="waddle"><img src="/assets/desktop/bobo.svg" alt="BoBo"></div></div>
+      <div class="ch" id="chTMilo"     style="left:149.9px;top:294.5px;width:227.6px;"><img src="/assets/desktop/text_milo_title.svg" alt="Meet Milo — Chief Curiosity Officer"></div>
+      <div class="ch para" id="chPMilo" style="left:146.8px;top:407.5px;width:231.2px;"><img src="/assets/desktop/text_milo_para.svg" alt="The kind of friend who finds joy in absolutely everything."></div>
+      <div class="ch" id="chTBobo"     style="left:1054.6px;top:546.4px;width:250.3px;"><img src="/assets/desktop/text_bobo_title.svg" alt="Meet BoBo — Professional Napper"></div>
+      <div class="ch para" id="chPBobo" style="left:1039.9px;top:658.6px;width:279.4px;"><img src="/assets/desktop/text_bobo_para.svg" alt="Firm believer that life is better lying down — and somehow, he's always right."></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= lookbook ================= -->
+<section id="lookbook">
+  <div id="lbMarquee" class="roll h62"></div>
+  <div id="lbGrid"></div>
+</section>
+
+
+    <div id="desktop-footer">
+<footer id="footer">
+  <div id="footRoll" class="roll h95"></div>
+  <div id="footBody">
+    <div id="footLeft">
+      <img src="/assets/desktop/wordmark_small.svg" alt="twinstudio">
+      <p>For the moments we share.<br>Together we play,<br>together we heal.</p>
+      <div class="copy">@ 2026, Twinstudio</div>
+    </div>
+    <div id="footCols">
+      <div class="fcol">
+        <h4>Shop</h4>
+        <a href="#">Taobao</a><a href="#">Etsy</a>
+      </div>
+      <div class="fcol">
+        <h4>Info</h4>
+        <a href="#story">Story</a><a href="#lookbook">Lookbook</a><a href="#collection">Collection</a><a href="#">FAQ</a>
+      </div>
+      <div class="fcol">
+        <h4>Connect</h4>
+        <a href="#">Contact Us</a><a href="#">Instagram</a><a href="#">RedBook</a><a href="#">Tiktok</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+  </div>
+
+  <main class="app-frame" id="app-frame">
+    <section id="view-mobile-home" class="view pending-view" aria-labelledby="mobile-home-title">
+      <h1 id="mobile-home-title">Twinstudio mobile home is ready for design.</h1>
+      <p>The shared Collection, Detail and Story pages are available now.</p>
+      <a href="#collection">Open Collection</a>
+    </section>
+
+
+  <!-- ============ EXPANDING MENU (mobile heading-expand) ============ -->
+  <div class="menu-anchor">
+    <div class="menu-overlay" id="menu-overlay">
+      <svg class="menu-bg" viewBox="0 0 402 262" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M14.6801 262H-29V0H456V262H316.09C231.24 262 225.717 177.484 130.993 177.484C80.1166 177.484 64.0504 262 14.6801 262Z" fill="#4C2B08"/>
+      </svg>
+      <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      <button class="menu-close" id="menu-close" aria-label="Close menu">
+        <svg viewBox="0 0 31 18" fill="none" aria-hidden="true">
+          <path d="M2 15.5L15.5 2L29 15.5" stroke="#F7ECD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <nav class="menu-links">
+        <a href="#story" id="menu-link-story">STORY</a>
+        <a href="#lookbook">LOOKBOOK</a>
+        <a href="#collection" id="menu-link-collection">COLLECTION</a>
+        <a href="#" onclick="return false">SHOP</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============ COLLECTION VIEW ============ -->
+  <section id="view-collection" class="view active">
+
+    <header class="top-header">
+      <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      <button class="burger menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <div class="title-wrap">
+      <img class="title-lockup" src="/assets/mobile/title-base.png" alt="Collection">
+      <img class="doodle paw" src="/assets/mobile/doodle-paw.png" alt="">
+      <img class="doodle face" src="/assets/mobile/doodle-face.png" alt="">
+    </div>
+
+    <div class="slogan-block">
+      <div class="slogan-wrap">
+        <img class="slogan-base" src="/assets/mobile/slogan-text.png" alt="(Pet-human goods) Thoughtfully designed. Objects for moments we shared. Shop now.">
+        <img class="doodle dog" src="/assets/mobile/toy-dog.svg" alt="">
+        <img class="doodle bear" src="/assets/mobile/toy-bear.svg" alt="">
+        <img class="doodle shop" src="/assets/mobile/toy-shop.svg" alt="">
+        <a class="shopnow-hotspot" href="#" onclick="return false" aria-label="Shop now"></a>
+      </div>
+    </div>
+
+    <div class="cat-strip" role="presentation"></div>
+
+    <div class="sections" id="sections"></div>
+
+    <div class="icon-strip" role="presentation"></div>
+
+    <footer class="site-footer">
+      <img class="footer-logo-img" src="/assets/mobile/footer-logo.png" alt="twinstudio">
+      <p class="footer-tagline">For the moments we share.<br>Together we play,<br>together we heal.</p>
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <a href="#" onclick="return false">Taobao</a>
+        <a href="#" onclick="return false">Etsy</a>
+      </div>
+      <div class="footer-cols-row">
+        <div class="footer-col">
+          <h4>INFO</h4>
+          <a href="#" onclick="return false">Story</a>
+          <a href="#" onclick="return false">Lookbook</a>
+          <a href="#" onclick="return false">Collection</a>
+          <a href="#" onclick="return false">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>CONNECT</h4>
+          <a href="#" onclick="return false">Contact Us</a>
+          <a href="#" onclick="return false">Instagram</a>
+          <a href="#" onclick="return false">RedBook</a>
+          <a href="#" onclick="return false">Tiktok</a>
+        </div>
+      </div>
+      <p class="footer-copy">@ 2026, Twinstudio</p>
+    </footer>
+
+  </section>
+
+  <!-- ============ DETAIL VIEW ============ -->
+  <section id="view-detail" class="view">
+
+    <header class="top-header">
+      <button class="back-btn" id="detail-back-btn" aria-label="Back">
+        <svg viewBox="0 0 13 22" fill="none" aria-hidden="true">
+          <path d="M11 20L2 11L11 2" stroke="#F7ECD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="burger menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav class="tabs-row" id="detail-tabs"></nav>
+
+    <div class="detail-hero" id="detail-hero">
+      <div class="detail-slogan" id="detail-slogan">
+        <h2 class="marker" id="detail-slogan-text"></h2>
+      </div>
+      <div class="detail-image-wrap" id="detail-image-wrap">
+        <img id="detail-hero-img" alt="">
+        <div class="scrim"></div>
+        <div class="corner-label left futura" id="detail-caption-left"></div>
+        <div class="corner-label right marker">collection</div>
+      </div>
+    </div>
+
+    <div class="grid-wrap">
+      <div class="product-grid" id="product-grid"></div>
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="load-more-btn">
+          <span class="label">LOAD MORE</span><span class="plus-lg">+</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="icon-strip" role="presentation"></div>
+
+    <footer class="site-footer">
+      <img class="footer-logo-img" src="/assets/mobile/footer-logo.png" alt="twinstudio">
+      <p class="footer-tagline">For the moments we share.<br>Together we play,<br>together we heal.</p>
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <a href="#" onclick="return false">Taobao</a>
+        <a href="#" onclick="return false">Etsy</a>
+      </div>
+      <div class="footer-cols-row">
+        <div class="footer-col">
+          <h4>INFO</h4>
+          <a href="#" onclick="return false">Story</a>
+          <a href="#" onclick="return false">Lookbook</a>
+          <a href="#" onclick="return false">Collection</a>
+          <a href="#" onclick="return false">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>CONNECT</h4>
+          <a href="#" onclick="return false">Contact Us</a>
+          <a href="#" onclick="return false">Instagram</a>
+          <a href="#" onclick="return false">RedBook</a>
+          <a href="#" onclick="return false">Tiktok</a>
+        </div>
+      </div>
+      <p class="footer-copy">@ 2026, Twinstudio</p>
+    </footer>
+
+  </section>
+
+  <!-- ============ STORY VIEW ============ -->
+  <section id="view-story" class="view">
+
+    <header class="top-header">
+      <img class="logo-badge" src="/assets/mobile/logo-badge.png" alt="Twinstudio">
+      <button class="burger menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <div class="story-title-wrap">
+      <img class="doodle hands" src="/assets/mobile/title-w.svg" alt="" aria-hidden="true">
+      <img class="doodle hands hands-r" src="/assets/mobile/title-w.svg" alt="" aria-hidden="true">
+      <img class="story-title" src="/assets/mobile/story-title.png" alt="Our Story">
+      <img class="doodle paw-s" src="/assets/mobile/title-paw-s.svg" alt="">
+      <img class="doodle paw-y" src="/assets/mobile/title-paw-y.svg" alt="">
+    </div>
+
+    <div class="story-slogan-wrap">
+      <img class="doodle sbear" src="/assets/mobile/toy-bear-color.svg" alt="">
+      <img class="story-slogan" src="/assets/mobile/story-slogan.png" alt="For moments we share. Together we play, together we heal.">
+      <img class="doodle sduck" src="/assets/mobile/toy-duck-color.svg" alt="">
+      <img class="doodle smilo" src="/assets/mobile/frenchie-lying.svg" alt="">
+    </div>
+
+    <div class="story-strip" role="presentation"></div>
+
+    <img class="story-illus i1" src="/assets/mobile/story-illus-1.png" alt="">
+
+    <div class="story-text">
+      <p>In everyday life, we are always searching for small forms of protection.</p>
+      <p>A pet&rsquo;s gaze, a gentle lean by our side &mdash; these moments speak louder than words. They are like hidden amulets in our daily routines, quietly passing us luck, softness, and healing.</p>
+    </div>
+
+    <img class="story-illus i2" src="/assets/mobile/story-illus-2.png" alt="">
+
+    <div class="story-text t2">
+      <p>Twinstudio is a design brand that transforms this energy of pets into a shared lifestyle.</p>
+      <p>Through design, we capture these tender moments, giving shape to companionship, warmth, and healing&mdash;turning everyday objects into rituals of connection. Here, products are more than objects; they are vessels of emotion and symbols of the bond between pets and people.</p>
+    </div>
+
+    <div class="story-collage">
+      <div class="collage-row">
+        <img class="collage-photo" src="/assets/mobile/story-photo-1.jpg" alt="">
+        <div class="collage-caption">
+          <h3 class="futura">MADE TO SHARE</h3>
+          <p>From our home to yours, we hope our pieces become part of your everyday moments.</p>
+        </div>
+      </div>
+      <div class="collage-row reverse">
+        <img class="collage-photo" src="/assets/mobile/story-photo-2.jpg" alt="">
+        <div class="collage-caption">
+          <h3 class="futura">INSPIRED BY LIFE</h3>
+          <p>Our products are inspired by our dogs and the little things that make them, and us, so happy.</p>
+        </div>
+      </div>
+      <div class="collage-row">
+        <img class="collage-photo" src="/assets/mobile/story-photo-3.jpg" alt="">
+        <div class="collage-caption">
+          <h3 class="futura">THOUGHTFUL BY DESIGN</h3>
+          <p>We care about the details, the materials, and the experience - because they deserve the best.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-strip" role="presentation"></div>
+
+    <div class="ins-scroller">
+      <img src="/assets/mobile/story-ins-1.png" alt="Instagram story" loading="lazy">
+      <img src="/assets/mobile/story-ins-2.png" alt="Instagram story" loading="lazy">
+      <img src="/assets/mobile/story-ins-3.png" alt="Instagram story" loading="lazy">
+      <img src="/assets/mobile/story-ins-4.png" alt="Instagram story" loading="lazy">
+      <img src="/assets/mobile/story-ins-5.png" alt="Instagram story" loading="lazy">
+      <img src="/assets/mobile/story-ins-6.png" alt="Instagram story" loading="lazy">
+    </div>
+
+    <div class="icon-strip" role="presentation"></div>
+
+    <footer class="site-footer">
+      <img class="footer-logo-img" src="/assets/mobile/footer-logo.png" alt="twinstudio">
+      <p class="footer-tagline">For the moments we share.<br>Together we play,<br>together we heal.</p>
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <a href="#" onclick="return false">Taobao</a>
+        <a href="#" onclick="return false">Etsy</a>
+      </div>
+      <div class="footer-cols-row">
+        <div class="footer-col">
+          <h4>INFO</h4>
+          <a href="#" onclick="return false">Story</a>
+          <a href="#" onclick="return false">Lookbook</a>
+          <a href="#" onclick="return false">Collection</a>
+          <a href="#" onclick="return false">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>CONNECT</h4>
+          <a href="#" onclick="return false">Contact Us</a>
+          <a href="#" onclick="return false">Instagram</a>
+          <a href="#" onclick="return false">RedBook</a>
+          <a href="#" onclick="return false">Tiktok</a>
+        </div>
+      </div>
+      <p class="footer-copy">@ 2026, Twinstudio</p>
+    </footer>
+
+  </section>
+
+
+  </main>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

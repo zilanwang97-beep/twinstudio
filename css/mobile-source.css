@@ -1,0 +1,588 @@
+/* ===== Twinstudio Collection — Figma-accurate styles =====
+   Design frame: 402px wide. Design px → cqw: 1px = 0.24876cqw. */
+
+/* ---------- Fonts ---------- */
+@font-face{
+  font-family:'PizzaismyFAVORITE';
+  src:url('/fonts/PizzaismyFAVORITE.ttf') format('truetype');
+  font-display:swap;
+}
+@font-face{
+  font-family:'Futura Extra Black Condensed';
+  src:url('/fonts/FuturaExtraBlackCondensed.otf') format('opentype');
+  font-display:swap;
+}
+
+:root{
+  --brown:#4C2B08;
+  --brown-deep:#2E1A06;
+  --cream:#FCF8F0;
+  --cream2:#F7ECD8;
+  --tan:#D9B48C;
+  --overlay:#4A2D13;
+  --maxw:460px;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--brown-deep);
+  font-family:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--cream);
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+a{color:inherit;text-decoration:none;}
+
+.marker{font-family:'PizzaismyFAVORITE',cursive;}
+.futura{font-family:'Futura Extra Black Condensed',Impact,sans-serif;font-weight:400;}
+
+/* ---------- App frame (phone viewport + size container) ---------- */
+.app-frame{
+  position:relative;
+  width:100%;
+  max-width:var(--maxw);
+  height:100vh;
+  height:100dvh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  background:var(--brown);
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  container-type:inline-size;
+}
+.app-frame::-webkit-scrollbar{display:none;}
+
+
+
+.view{display:none;}
+.view.active{display:block;}
+
+/* ---------- Sticky header (102px tall, per mobile heading.svg) ---------- */
+.top-header{
+  position:sticky;top:0;z-index:50;
+  height:25.37cqw;                      /* 102px */
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 7.09cqw 0 6.84cqw;          /* right 28.5, left 27.5 */
+  background:var(--brown);
+}
+.logo-badge{height:11.57cqw;width:auto;} /* oval TWINSTUDIO badge, 46.5px */
+
+/* hamburger: 3 bars 27x4, 5px apart, #F7ECD8, rounded caps */
+.burger{
+  background:none;border:none;padding:1cqw 0;
+  display:flex;flex-direction:column;gap:1.24cqw;
+}
+.burger span{
+  display:block;width:6.72cqw;height:1cqw;border-radius:1cqw;
+  background:var(--cream2);
+}
+
+/* back chevron: 9x18, stroke 4, #F7ECD8 */
+.back-btn{
+  background:none;border:none;padding:0;
+  width:4cqw;height:5.5cqw;
+  display:flex;align-items:center;justify-content:flex-start;
+}
+.back-btn svg{width:3.25cqw;height:5.5cqw;display:block;}
+
+/* ---------- Expanding menu (mobile heading-expand.svg) ---------- */
+.menu-anchor{
+  position:sticky;top:0;height:0;z-index:80;overflow:visible;
+}
+.menu-overlay{
+  position:absolute;top:0;left:0;width:100%;
+  aspect-ratio:402/262;
+  transform:translateY(-104%);
+  transition:transform .38s cubic-bezier(.33,.01,.2,1);
+  pointer-events:none;
+  visibility:hidden;
+}
+.menu-overlay.open{
+  transform:translateY(0);
+  pointer-events:auto;
+  visibility:visible;
+}
+.menu-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.28));
+}
+.menu-overlay .logo-badge{
+  position:absolute;left:6.84cqw;top:8.46cqw;   /* 27.5, 34 */
+}
+.menu-close{
+  position:absolute;right:7.09cqw;top:10.95cqw; /* aligns with burger spot */
+  background:none;border:none;padding:1cqw;
+}
+.menu-close svg{width:6.47cqw;height:3.48cqw;display:block;}
+.menu-links{
+  position:absolute;right:6.34cqw;top:25.87cqw; /* first item top 104px */
+  display:flex;flex-direction:column;align-items:flex-end;
+  gap:5.97cqw;                                   /* pitch 40 - line 16 = 24px */
+}
+.menu-links a{
+  font-size:3.98cqw;line-height:1;font-weight:700;
+  letter-spacing:.02em;color:var(--cream2);
+}
+
+/* ================= COLLECTION VIEW ================= */
+
+.title-wrap{
+  position:relative;
+  margin:3.48cqw 0 0;                    /* title block at y116 (incl. pig doodle) */
+}
+.title-lockup{
+  width:100cqw;                          /* v3: full-bleed title */
+  display:block;
+}
+.doodle{position:absolute;pointer-events:none;}
+
+/* paw "i" — waves side to side, pivot at baseline */
+.doodle.paw{
+  left:67.54%;top:12.24%;width:6.59%;
+  transform-origin:50% 96%;
+  animation:pawWave 2.2s ease-in-out infinite;
+}
+@keyframes pawWave{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(-6deg);}
+  75%{transform:rotate(6deg);}
+}
+
+/* frenchie "o" — shakes head in short bursts */
+.doodle.face{
+  left:74.13%;top:43.37%;width:12.94%;
+  transform-origin:50% 65%;
+  animation:headShake 3.8s ease-in-out infinite;
+}
+@keyframes headShake{
+  0%,40%,100%{transform:rotate(0deg);}
+  6%{transform:rotate(-5deg);}
+  14%{transform:rotate(5deg);}
+  22%{transform:rotate(-4deg);}
+  30%{transform:rotate(3deg);}
+}
+
+.cat-strip{
+  height:7.46cqw;                        /* 30px */
+  overflow:hidden;
+  background-image:url('/assets/mobile/cat-strip.png');
+  background-repeat:repeat-x;
+  background-size:auto 100%;
+  animation:stripSlide 28s linear infinite;
+}
+@keyframes stripSlide{
+  from{background-position-x:0;}
+  to{background-position-x:-176.2cqw;}
+}
+
+/* v3 order: title → slogan block (canvas 402x303 at y219.5) → strip (y522) → cards (y568) */
+.slogan-block{
+  margin:1.37cqw 0 0;          /* canvas top padding puts caption at y245 */
+}
+.slogan-wrap{position:relative;}
+.slogan-wrap .slogan-base{width:100%;display:block;}
+
+/* toy dog — wobbles on "THOUGHTFULLY", tumbles down onto the shop roof */
+.doodle.dog{
+  left:50.87%;top:10.89%;width:10.7%;
+  animation:dogFall 7s ease-in-out infinite;
+}
+@keyframes dogFall{
+  0%,14%{transform:translate(0,0) rotate(0deg);}
+  19%{transform:translate(0.5cqw,-0.5cqw) rotate(-8deg);}
+  25%{transform:translate(1.2cqw,0.2cqw) rotate(10deg);}
+  32%{transform:translate(4cqw,4cqw) rotate(60deg);}
+  45%{transform:translate(16cqw,24cqw) rotate(240deg);}
+  53%{transform:translate(21.3cqw,33cqw) rotate(360deg);}    /* full flip, lands upright */
+  57%{transform:translate(21.3cqw,31.8cqw) rotate(356deg);}  /* small bounce */
+  61%,84%{transform:translate(21.3cqw,33cqw) rotate(360deg);}
+  89%{transform:translate(21.3cqw,33cqw) rotate(360deg);opacity:0;}
+  93%{transform:translate(0,0) rotate(0deg);opacity:0;}
+  97%,100%{transform:translate(0,0) rotate(0deg);opacity:1;}
+}
+
+/* bear — gentle rocking */
+.doodle.bear{
+  left:15.15%;top:39.14%;width:8.21%;
+  transform-origin:50% 92%;
+  animation:bearRock 2.6s ease-in-out infinite;
+}
+@keyframes bearRock{
+  0%,100%{transform:rotate(-5deg);}
+  50%{transform:rotate(5deg);}
+}
+
+/* shop — static target, tiny squash when the dog lands (synced to dogFall) */
+.doodle.shop{
+  left:66.42%;top:61.82%;width:23.88%;
+  transform-origin:50% 100%;
+  animation:shopSquash 7s ease-in-out infinite;
+}
+@keyframes shopSquash{
+  0%,52%,60%,100%{transform:scaleY(1);}
+  55%{transform:scaleY(0.965);}
+}
+
+/* clickable hotspot over the baked-in SHOP NOW button */
+.shopnow-hotspot{
+  position:absolute;
+  left:38.6%;top:84.4%;width:26.4%;height:7%;
+}
+
+.sections{
+  padding:3.98cqw 5.97cqw 0;  /* strip bottom 552 → cards 568 */
+  display:flex;flex-direction:column;gap:7.96cqw;
+}
+
+.section-card{
+  position:relative;overflow:hidden;
+  aspect-ratio:354/448;
+  background:#33200a;
+}
+.section-card img{
+  width:100%;height:100%;object-fit:cover;
+}
+.section-slogan{
+  position:absolute;top:26.3%;left:50%;transform:translateX(-50%);
+  width:94%;text-align:center;color:var(--cream);
+  font-size:10.95cqw;line-height:1.0;
+  z-index:2;
+  white-space:pre-line;
+}
+.section-caption{
+  position:absolute;left:3cqw;bottom:1.9cqw;z-index:2;
+  font-size:9.7cqw;line-height:1;
+  color:var(--cream);
+  letter-spacing:.02em;
+}
+.explore-btn{
+  position:absolute;right:3.08cqw;bottom:4.48cqw;z-index:2;
+  width:21.05cqw;height:4.98cqw;
+  background:var(--cream);color:var(--brown);border:none;border-radius:0;
+  font-size:2.24cqw;font-weight:700;letter-spacing:.08em;
+  display:flex;align-items:center;justify-content:center;gap:1.4cqw;
+  padding:0;
+}
+.explore-btn .plus{font-size:3.2cqw;font-weight:500;line-height:1;}
+.explore-btn:active{transform:scale(.96);}
+
+/* ---------- Decorative icon strip ---------- */
+.icon-strip{
+  height:7.46cqw;margin:9.95cqw 0 0;
+  background-image:url('/assets/mobile/footer-strip.png');
+  background-repeat:repeat-x;background-size:auto 100%;
+  animation:iconStripSlide 32s linear infinite;
+}
+@keyframes iconStripSlide{
+  from{background-position-x:0;}
+  to{background-position-x:-126.8cqw;}  /* one tile: 1614*(30/95)=509.7px */
+}
+#view-detail .icon-strip{margin-top:5.97cqw;}   /* 24px on detail page */
+
+/* ---------- Footer ---------- */
+.site-footer{
+  background:var(--brown);
+  padding:13.8cqw 9.95cqw 10.7cqw;
+}
+.footer-logo-img{width:49cqw;height:auto;}
+.footer-tagline{
+  color:var(--cream);font-size:4.23cqw;line-height:1.8;
+  margin:5.2cqw 0 12.2cqw;
+}
+.footer-col{margin-bottom:9cqw;}
+.footer-cols-row{display:flex;}
+.footer-cols-row .footer-col{flex:0 0 auto;}
+.footer-cols-row .footer-col:first-child{width:36.8cqw;}
+.footer-col h4{
+  font-size:3.86cqw;letter-spacing:.02em;color:var(--cream);
+  margin:0 0 4.5cqw;font-weight:700;
+}
+.footer-col a{
+  display:block;font-size:4.35cqw;color:var(--cream);
+  margin-bottom:3.5cqw;
+}
+.footer-copy{
+  font-size:3.73cqw;color:var(--cream);margin:6cqw 0 0;
+}
+
+/* ================= DETAIL VIEW ================= */
+
+/* category tabs: band from y102 to y170 (68px), no border */
+.tabs-row{
+  position:sticky;z-index:45;
+  top:25.37cqw;
+  height:16.92cqw;
+  display:flex;align-items:center;gap:3.7cqw;
+  padding:0 4.98cqw;
+  background:var(--brown);
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+}
+.tabs-row::-webkit-scrollbar{display:none;}
+.tab-btn{
+  background:none;border:none;color:var(--cream);
+  font-size:2.74cqw;letter-spacing:.05em;font-weight:500;
+  padding:.8cqw 0;position:relative;flex:0 0 auto;
+}
+.tab-btn.active{color:var(--cream);}
+.tab-btn.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--cream);
+}
+
+/* hero: sticky slogan (top 170px) + image in flow behind it */
+.detail-hero{
+  position:relative;
+}
+.detail-slogan{
+  position:sticky;
+  top:42.29cqw;                          /* 170px = header 102 + tabs 68 */
+  z-index:20;
+  height:55.22cqw;                       /* 222px: text 177 + 45 gap */
+  padding-top:3cqw;                      /* room for Pizza-font ascenders */
+  display:flex;align-items:flex-start;justify-content:center;
+  text-align:center;
+}
+.detail-slogan h2{
+  font-size:10.95cqw;line-height:1.0;
+  color:var(--cream);margin:0;font-weight:400;
+  white-space:pre-line;
+}
+.detail-image-wrap{
+  position:relative;z-index:10;
+  aspect-ratio:402/264;overflow:hidden;
+}
+.detail-image-wrap img{width:100%;height:100%;object-fit:cover;}
+.detail-image-wrap .scrim{
+  position:absolute;inset:0;background:var(--overlay);opacity:0;
+  transition:opacity .25s ease;
+}
+.detail-hero.overlapped .detail-image-wrap .scrim{opacity:.4;}
+.detail-image-wrap .corner-label{
+  position:absolute;bottom:1cqw;z-index:2;color:var(--cream);
+  line-height:1;
+}
+.corner-label.left{left:6cqw;font-size:9.7cqw;}
+.corner-label.right{right:3.5cqw;font-size:6.5cqw;}
+
+/* product grid: 171x170 cards, 12px gaps, 24px sides, 48px below image */
+.grid-wrap{padding:11.94cqw 5.97cqw 0;position:relative;z-index:1;background:var(--brown);}
+.product-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2.99cqw;
+}
+.product-card{
+  position:relative;
+  background:var(--cream);
+  aspect-ratio:171/170;
+  opacity:0;transform:translateY(14px);
+  animation:cardIn .45s ease forwards;
+}
+.product-card.hidden-item{display:none;}
+@keyframes cardIn{to{opacity:1;transform:translateY(0);}}
+
+/* COLLECTION badge: 61.7x12.2 outlined, at (8.3, 8.7) */
+.badge{
+  position:absolute;top:2.16cqw;left:2.06cqw;
+  width:15.35cqw;height:3.03cqw;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--brown);
+  border:1px solid var(--brown);
+  font-size:1.62cqw;letter-spacing:.06em;font-weight:600;
+  z-index:2;
+}
+
+/* product image: max usable zone between badge and meta, transparent PNG, Fit */
+.product-card .thumb{
+  position:absolute;left:4%;top:13.5%;
+  width:92%;height:65%;
+}
+.product-card .thumb img{
+  width:100%;height:100%;object-fit:contain;object-position:center;
+}
+.product-meta{
+  position:absolute;left:2.06cqw;bottom:2.2cqw;right:2.06cqw;
+}
+.product-meta .pname{font-size:2.61cqw;font-weight:700;color:var(--brown);margin:0 0 1cqw;letter-spacing:.01em;}
+.product-meta .ptag{font-size:2.36cqw;color:var(--brown);margin:0;}
+
+.load-more-wrap{display:flex;justify-content:center;padding:2.99cqw 0 0;}
+.load-more-btn{
+  background:var(--cream2);color:var(--brown);border:none;border-radius:0;
+  width:33.83cqw;height:6.97cqw;
+  font-size:2.74cqw;font-weight:700;letter-spacing:.06em;
+  display:flex;align-items:center;justify-content:center;gap:2cqw;
+}
+.load-more-btn .plus-lg{font-size:3.98cqw;font-weight:500;line-height:1;}
+.load-more-btn:disabled{opacity:.5;}
+
+/* ================= STORY VIEW ================= */
+
+/* --- title: full-bleed canvas 402x121, top at y99 --- */
+.story-title-wrap{
+  position:relative;
+  margin:-0.75cqw 0 0;
+}
+.story-title{width:100cqw;display:block;position:relative;z-index:2;}
+
+/* two hands inside the first "O" — bump together (two clipped halves, behind base) */
+.story-title-wrap .hands{
+  left:5.35%;top:64%;width:7.34%;z-index:1;
+  clip-path:inset(0 52% 0 0);
+  animation:handBumpL 2.8s ease-in-out infinite;
+}
+.story-title-wrap .hands-r{
+  clip-path:inset(0 0 0 52%);
+  animation-name:handBumpR;
+}
+@keyframes handBumpL{
+  0%,35%,100%{transform:translateX(0);}
+  45%,55%{transform:translateX(5%);}
+  65%{transform:translateX(0);}
+}
+@keyframes handBumpR{
+  0%,35%,100%{transform:translateX(0);}
+  45%,55%{transform:translateX(-5%);}
+  65%{transform:translateX(0);}
+}
+
+/* paw on the "S" — waves */
+.story-title-wrap .paw-s{
+  left:50.87%;top:50.8%;width:5.1%;z-index:3;
+  transform-origin:50% 92%;
+  animation:pawWave 2.4s ease-in-out infinite;
+}
+/* paw in the "y" tail — waves */
+.story-title-wrap .paw-y{
+  left:88.06%;top:58.7%;width:7.4%;z-index:3;
+  transform:rotate(14deg);
+  transform-origin:50% 94%;
+  animation:pawWaveY 2.4s ease-in-out infinite .5s;
+}
+@keyframes pawWaveY{
+  0%,100%{transform:rotate(8deg);}
+  25%{transform:rotate(22deg);}
+  75%{transform:rotate(2deg);}
+}
+
+/* --- slogan: canvas 402x291, top at y223 --- */
+.story-slogan-wrap{
+  position:relative;
+  margin:0.75cqw 0 0;
+}
+.story-slogan{width:100cqw;display:block;position:relative;z-index:2;}
+
+/* bear jumps up out of the "O" of TOGETHER (rises from behind the letters) */
+.story-slogan-wrap .sbear{
+  left:17.79%;top:42.44%;width:4.98%;z-index:1;
+  animation:bearJump 3.6s ease-in-out infinite;
+}
+@keyframes bearJump{
+  0%,30%,100%{transform:translateY(0);}
+  38%{transform:translateY(-58%) rotate(-4deg);}
+  44%{transform:translateY(-52%) rotate(3deg);}
+  52%{transform:translateY(0);}
+  56%{transform:translateY(-6%) scaleY(.95);}
+  60%{transform:translateY(0);}
+}
+
+/* duck slides off the "R" of TOGETHER and waddles up next to HEAL. */
+.story-slogan-wrap .sduck{
+  left:63.2%;top:65.5%;width:10.45%;z-index:3;
+  animation:duckSlide 9s ease-in-out infinite;
+}
+@keyframes duckSlide{
+  0%,16%{transform:translate(0,0) rotate(-72deg);}
+  21%{transform:translate(.3cqw,.4cqw) rotate(-60deg);}
+  30%{transform:translate(1.4cqw,4cqw) rotate(-28deg);}
+  38%{transform:translate(2.4cqw,6.6cqw) rotate(-6deg);}
+  43%{transform:translate(3cqw,7.06cqw) rotate(0deg);}
+  50%{transform:translate(4.4cqw,6.9cqw) rotate(-5deg);}
+  57%{transform:translate(6cqw,7.06cqw) rotate(4deg);}
+  63%{transform:translate(7.7cqw,7.06cqw) rotate(0deg);}
+  88%{transform:translate(7.7cqw,7.06cqw) rotate(0deg);opacity:1;}
+  93%{transform:translate(7.7cqw,7.06cqw) rotate(0deg);opacity:0;}
+  96%{transform:translate(0,0) rotate(-72deg);opacity:0;}
+  100%{transform:translate(0,0) rotate(-72deg);opacity:1;}
+}
+
+/* lying frenchie — static */
+.story-slogan-wrap .smilo{
+  left:12.31%;top:62.03%;width:17.54%;z-index:3;
+}
+
+.story-strip{
+  height:7.46cqw;margin:-0.75cqw 0 0;  /* strip 1 at y511 */
+  background-image:url('/assets/mobile/story-strip.png');
+  background-repeat:repeat-x;background-size:auto 100%;
+  animation:storyStripSlide 30s linear infinite;
+}
+.story-collage + .story-strip{margin-top:4.06cqw;}  /* strip 2 at y1995 */
+@keyframes storyStripSlide{
+  from{background-position-x:0;}
+  to{background-position-x:-184cqw;}   /* one tile: 1529*(30/62)=740px */
+}
+.story-illus{display:block;width:83.58cqw;margin:8.21cqw auto 0;}
+.story-text{
+  padding:0 12.94cqw 0 8.96cqw;
+  margin-top:10cqw;
+  color:var(--cream);
+  font-size:3.98cqw;line-height:1.3;
+}
+.story-text p{margin:0 0 4.98cqw;}
+.story-text p:last-child{margin-bottom:0;}
+.story-text.t2{margin-top:12.06cqw;}
+
+/* photo collage: 3 tiled rows, photo 193x192.33 alternating sides */
+.story-collage{margin-top:12.94cqw;}
+.collage-row{
+  display:flex;align-items:stretch;
+}
+.collage-row.reverse{flex-direction:row-reverse;}
+.collage-photo{
+  width:48.01cqw;aspect-ratio:193/192.33;
+  object-fit:cover;display:block;
+  margin-left:1.99cqw;                  /* photo column at x8 */
+  flex:0 0 auto;
+}
+.collage-row.reverse .collage-photo{margin-left:0;margin-right:1.99cqw;}
+.collage-caption{
+  flex:1;
+  padding:4.48cqw 2.99cqw 0 3.98cqw;
+}
+.collage-row.reverse .collage-caption{padding:4.48cqw 2.49cqw 0 9.95cqw;}
+.collage-caption h3{
+  font-size:6.72cqw;line-height:1.1;color:var(--cream);
+  margin:0 0 5.5cqw;font-weight:400;letter-spacing:.02em;
+}
+.collage-caption p{
+  margin:0;color:var(--cream);
+  font-size:3.98cqw;line-height:1.3;
+}
+
+/* ins story — horizontal scroll */
+.ins-scroller{
+  display:flex;gap:4.98cqw;             /* 20px */
+  padding:0 5.97cqw;                    /* 24px */
+  margin-top:11.94cqw;                  /* y2073 */
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.ins-scroller::-webkit-scrollbar{display:none;}
+.ins-scroller img{
+  width:53.73cqw;aspect-ratio:216/384;  /* 216x384 */
+  object-fit:cover;flex:0 0 auto;
+  scroll-snap-align:start;
+  border-radius:3cqw;                   /* clips baked black corners */
+}
+#view-story .icon-strip{margin-top:9.45cqw;}
+
+/* utility */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}

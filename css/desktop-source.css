@@ -1,0 +1,362 @@
+
+  :root{
+    --brown:#4C2B08;
+    --cream:#F7ECD8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:auto;}
+  body{
+    background:var(--brown);
+    font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;
+    overflow-x:hidden;
+  }
+  img{display:block;-webkit-user-drag:none;user-select:none;}
+
+  /* ---------- fixed header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;height:0;z-index:60;
+  }
+  #hLogo{
+    position:absolute;cursor:pointer;
+    transition:transform .45s cubic-bezier(.34,1.56,.64,1);
+    transform-origin:center;
+  }
+  #hLogo:hover{transform:rotate(-4deg) scale(1.06);}
+  /* back arrow replaces the logo on the detail page */
+  #hBack{position:absolute;cursor:pointer;display:none;transition:transform .3s ease;}
+  #hBack:hover{transform:translateX(-4px);}
+  body.detail-open #hBack{display:block;}
+  body.detail-open #hLogo{display:none;}
+  #hBurger{
+    position:absolute;cursor:pointer;aspect-ratio:35/26;
+  }
+  #hBurger img{transition:transform .3s ease,opacity .3s ease;}
+  #hBurger:hover img{transform:scaleX(.85);}
+  /* burger ⇄ chevron crossfade */
+  #hBurger img{position:absolute;left:0;top:0;width:100%;}
+  #hBurger img.chev{opacity:0;}
+  body.menu-open #hBurger img.burg{opacity:0;}
+  body.menu-open #hBurger img.chev{opacity:1;}
+
+  /* drop-down menu panel with wavy bottom edge */
+  #menuPanel{
+    position:fixed;left:0;top:0;width:100vw;z-index:55;
+    transform:translateY(-104%);
+    transition:transform .65s cubic-bezier(.72,0,.22,1);
+    pointer-events:none;
+  }
+  body.menu-open #menuPanel{transform:none;pointer-events:auto;}
+  #menuPanel .bg{display:block;width:100%;height:100%;position:absolute;inset:0;}
+  #menuLinks{
+    position:absolute;display:flex;flex-direction:column;align-items:flex-end;
+  }
+  #menuLinks a{
+    color:var(--cream);text-decoration:none;text-transform:uppercase;
+    font-weight:700;letter-spacing:.08em;line-height:1;
+    opacity:0;transform:translateY(-10px);
+    transition:opacity .35s ease,transform .35s ease;
+  }
+  #menuLinks a:hover{opacity:.75 !important;}
+  body.menu-open #menuLinks a{opacity:1;transform:none;}
+  body.menu-open #menuLinks a:nth-child(1){transition-delay:.18s;}
+  body.menu-open #menuLinks a:nth-child(2){transition-delay:.26s;}
+  body.menu-open #menuLinks a:nth-child(3){transition-delay:.34s;}
+  body.menu-open #menuLinks a:nth-child(4){transition-delay:.42s;}
+
+  /* ---------- scroll stage ---------- */
+  #scrollzone{height:380vh;position:relative;}
+  #viewport{
+    position:sticky;top:0;height:100vh;overflow:hidden;
+  }
+  /* hero grid stage: contain-scaled, centered in the viewport
+     (extra space just shows brand brown — never crops content) */
+  #stage{
+    position:absolute;left:50%;top:50%;
+    width:1440px;height:900px;
+    transform-origin:center;
+  }
+
+  .el{position:absolute;will-change:transform,opacity;}
+  .el .idle{animation:idleFloat 5s ease-in-out infinite;}
+  .el .hov{transition:transform .3s ease;}
+  .el img{width:100%;height:auto;}
+
+  @keyframes idleFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+  }
+  /* hover micro-animations */
+  .hov-shake:hover .hov{animation:shake .5s ease-in-out infinite;}
+  @keyframes shake{
+    0%,100%{transform:rotate(0deg);}
+    25%{transform:rotate(-3.5deg);}
+    75%{transform:rotate(3.5deg);}
+  }
+  .hov-swing:hover .hov{animation:swing 1s ease-in-out infinite;transform-origin:top center;}
+  @keyframes swing{
+    0%,100%{transform:rotate(-6deg);}
+    50%{transform:rotate(6deg);}
+  }
+  .hov-hop:hover .hov{animation:hop .55s ease-in-out infinite;}
+  @keyframes hop{
+    0%,100%{transform:translateY(0) ;}
+    40%{transform:translateY(-9px) rotate(-2deg);}
+    70%{transform:translateY(0) scaleY(.94);}
+  }
+  .hov-wobble:hover .hov{animation:wobble .7s ease-in-out infinite;transform-origin:bottom center;}
+  @keyframes wobble{
+    0%,100%{transform:rotate(0);}
+    30%{transform:rotate(5deg);}
+    65%{transform:rotate(-5deg);}
+  }
+
+  /* photo circles */
+  .photo{border-radius:50%;overflow:hidden;isolation:isolate;cursor:pointer;}
+  .photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.001);transition:transform .6s cubic-bezier(.22,1,.36,1);}
+  .photo .tint{
+    position:absolute;inset:0;border-radius:50%;
+    background:var(--brown);mix-blend-mode:color;
+    transition:opacity .5s ease;
+  }
+  .photo .dim{
+    position:absolute;inset:0;border-radius:50%;
+    background:rgba(76,43,8,.35);
+    transition:opacity .5s ease;
+  }
+  .photo:hover .tint,.photo:hover .dim{opacity:0;}
+  .photo:hover img{transform:scale(1.07);}
+
+  /* wordmark strip: independent full-bleed layer, glued to the viewport
+     bottom and scaled by viewport WIDTH so it always spans edge to edge */
+  #wordLayer{
+    position:absolute;left:0;bottom:0;width:1440px;height:258px;
+    will-change:transform,opacity;transform-origin:bottom left;
+  }
+  #wordmark{position:absolute;left:2px;top:0;width:1438px;height:258px;}
+  #wordmark .base{position:absolute;left:0;top:0;width:1438px;}
+  .wm-part{position:absolute;will-change:transform;}
+  #handL,#handR{left:126.9px;top:41.8px;width:204px;}
+  #pawSmall{left:345.5px;top:105.8px;width:84px;}
+  #pawTall{left:1208px;top:36.9px;width:76px;}
+  /* once the wordmark has settled, hands sway and paws knead */
+  .alive #handL{animation:sway 2.6s ease-in-out infinite;transform-origin:25% 97%;}
+  .alive #handR{animation:sway 2.6s ease-in-out infinite -1.3s;transform-origin:85% 97%;}
+  @keyframes sway{
+    0%,100%{transform:rotate(-3.5deg);}
+    50%{transform:rotate(3.5deg);}
+  }
+  /* paws stay pinned to the bottom edge and stretch up / squash down */
+  .alive #pawSmall{animation:grabS 1.9s ease-in-out infinite .4s;transform-origin:50% 100%;}
+  @keyframes grabS{
+    0%,55%,100%{transform:scaleY(1) rotate(0deg);}
+    20%{transform:scaleY(1.08) rotate(-3deg);}
+    38%{transform:scaleY(.955);}
+  }
+  .alive #pawTall{animation:grabT 2.3s ease-in-out infinite .9s;transform-origin:50% 100%;}
+  @keyframes grabT{
+    0%,60%,100%{transform:scaleY(1);}
+    25%{transform:scaleY(1.055) rotate(1deg);}
+    45%{transform:scaleY(.975);}
+  }
+  .rider{position:absolute;will-change:transform;}
+  .rider .pose{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+  .rider .pose.landpose{opacity:0;transition:opacity .12s ease;}
+  .rider.landed .pose.heropose{opacity:0;transition:opacity .12s ease;}
+  .rider.landed .pose.landpose{opacity:1;}
+  .rider .squash{width:100%;height:100%;position:relative;transform-origin:bottom center;}
+  .rider.landed .squash{animation:squashIn .45s cubic-bezier(.34,1.56,.64,1);}
+  .rider:hover .squash{animation:shake .5s ease-in-out infinite;}
+  @keyframes squashIn{
+    0%{transform:scaleY(.78) scaleX(1.12);}
+    100%{transform:scaleY(1) scaleX(1);}
+  }
+
+  /* scroll hint */
+  #hint{
+    position:absolute;left:50%;bottom:36px;transform:translateX(-50%);
+    color:var(--cream);opacity:.55;font-size:13px;letter-spacing:.35em;
+    text-transform:uppercase;font-weight:600;
+    animation:hintBob 2s ease-in-out infinite;transition:opacity .4s ease;
+  }
+  @keyframes hintBob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,7px);}}
+
+  /* ---------- philosophy ---------- */
+  #philosophy{
+    min-height:100vh;position:relative;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:16vh 6vw 0;
+  }
+  /* heading band: full-bleed handwritten composition (design y180-760),
+     scales with viewport width like every other section */
+  #philosophy .headingWrap{position:relative;width:100vw;}
+  #philosophy .heading{display:block;width:100%;height:auto;}
+  /* invisible hotspot over the baked-in OUR STORY button */
+  #storyBtn{
+    position:absolute;left:64.8%;top:92%;width:14%;height:7%;
+    cursor:pointer;
+  }
+
+  #marquee{
+    margin-top:auto;width:100vw;overflow:hidden;padding:4.2vh 0 4.6vh;
+    opacity:0;transition:opacity 1.2s ease .25s;
+  }
+  #philosophy.inview #marquee{opacity:1;}
+  @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* hand-drawn marquee strips: one PNG tile (exact repeat period) looped.
+     All strips share the same design→screen scale so lettering matches. */
+  .roll{width:100vw;overflow:hidden;}
+  .roll-track{display:flex;width:max-content;animation:mq linear infinite;}
+  .roll-track img{display:block;width:auto;flex:none;}
+  .roll:hover .roll-track{animation-play-state:paused;}
+  .roll.h62 .roll-track img{height:clamp(40px,4.31vw,66px);}   /* 62 design px */
+  .roll.h95 .roll-track img{height:clamp(61px,6.6vw,101px);}   /* 95 design px */
+  /* instagram photo marquee on the story page (457 design px cards) */
+  .roll.ins{margin:8.33vw 0;}
+  .roll.ins .roll-track img{
+    height:31.75vw;margin-right:1.39vw;   /* card 457 + gap 20, design px */
+    border-radius:1.042vw;                /* 15 design px */
+  }
+
+  /* ---------- character ---------- */
+  #charZone{height:100vh;position:relative;}
+  #charView{position:relative;height:100vh;overflow:hidden;}
+  #charStage{
+    position:absolute;left:50%;top:50%;
+    width:1440px;height:900px;transform-origin:center;
+  }
+  .ch{position:absolute;will-change:transform,opacity;z-index:1;}
+  /* dogs walk in front of the text blocks */
+  #chMilo,#chBobo{z-index:3;}
+  #chPig,#chTeddy{z-index:2;}
+  .ch img{width:100%;height:auto;display:block;}
+  /* waddle walk cycle: rocks around the feet + little bounce per step */
+  .walking .waddle{animation:waddle .55s ease-in-out infinite;}
+  .waddle{transform-origin:50% 96%;}
+  @keyframes waddle{
+    0%,100%{transform:rotate(2.4deg) translateY(0);}
+    25%{transform:rotate(0deg) translateY(-7px);}
+    50%{transform:rotate(-2.4deg) translateY(0);}
+    75%{transform:rotate(0deg) translateY(-7px);}
+  }
+  /* settled: gentle idle breathing */
+  .settled .waddle{animation:breathe 3.4s ease-in-out infinite;}
+  @keyframes breathe{
+    0%,100%{transform:scaleY(1);}
+    50%{transform:scaleY(1.012) rotate(.3deg);}
+  }
+  .ch.para{transition:opacity .6s ease;}
+
+  /* ---------- lookbook ---------- */
+  #lookbook{position:relative;padding:9vh 0 0;}
+  #lbMarquee{margin-bottom:5.5vh;}
+  #lbGrid{
+    position:relative;width:min(1440px,100vw);margin:0 auto;
+  }
+  .lb-cell{
+    position:absolute;overflow:hidden;cursor:pointer;
+    opacity:0;transform:translateY(46px);
+    transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  .lb-cell.show{opacity:1;transform:none;}
+  .lb-cell>img.ph{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.22,1,.36,1);
+  }
+  .lb-cell:hover>img.ph{transform:scale(1.05);}
+  .lb-cell .lb-mask{
+    position:absolute;inset:0;width:100%;height:100%;
+    transition:opacity .55s ease;pointer-events:none;
+  }
+  .lb-cell:hover .lb-mask{opacity:0;}
+  /* "explore more collection series" text cell */
+  .lb-explore{
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lb-explore img{
+    width:78%;height:auto;transition:transform .45s cubic-bezier(.34,1.56,.64,1);
+  }
+  .lb-explore:hover img{transform:scale(1.07) rotate(-1.5deg);}
+
+  /* ---------- sub-pages (hash-routed overlays) ---------- */
+  .pageView{
+    position:fixed;inset:0;z-index:50;background:var(--brown);
+    overflow-y:auto;overflow-x:hidden;display:none;
+    overscroll-behavior:contain;
+    padding-top:8.33vw;   /* design header band (120/1440) */
+  }
+  body.coll-open #collectionView{display:block;}
+  body.story-open #storyView{display:block;}
+  body.detail-open #detailView{display:block;}
+  body.coll-open,body.story-open,body.detail-open{overflow:hidden;}
+  .pageView .cimg{display:block;width:100vw;height:auto;}
+
+  /* EXPLORE hotspots over the collection rows */
+  .rowWrap{position:relative;}
+  .expHot{position:absolute;cursor:pointer;display:block;}
+
+  /* collection detail: handwritten title pinned, cover slides beneath it */
+  .dHero{position:relative;}
+  /* the scroller itself must be unpadded for the sticky offsets to work */
+  #detailView{padding-top:0;}
+  .dHero{padding-top:8.33vw;}
+  .dTitle{
+    position:sticky;top:8.33vw;z-index:2;
+    width:100vw;height:40.69vw;pointer-events:none;
+  }
+  /* category nav: real links, active = underlined (design y156, font ~28) */
+  .dNav{
+    position:absolute;left:0;top:2.1vw;width:100%;
+    display:flex;justify-content:center;gap:2.55vw;
+    pointer-events:auto;
+  }
+  .dNav a{
+    color:var(--cream);text-decoration:none;text-transform:uppercase;
+    font-weight:600;font-size:1.95vw;line-height:1;letter-spacing:.01em;
+    padding-bottom:.45vw;border-bottom:.17vw solid transparent;
+    opacity:.9;transition:opacity .25s ease,border-color .25s ease;
+  }
+  .dNav a:hover{opacity:1;}
+  .dNav a.active{opacity:1;border-bottom-color:var(--cream);}
+  .dKicker{
+    position:absolute;left:0;top:11.9vw;width:100%;text-align:center;
+    color:var(--cream);font-weight:700;font-size:1.18vw;letter-spacing:.02em;
+  }
+  .dHeading{
+    position:absolute;left:0;top:13.9vw;width:100%;height:auto;display:block;
+  }
+  .dSub{
+    position:absolute;left:0;top:33.4vw;width:100%;text-align:center;
+    color:var(--cream);font-weight:500;font-size:1.4vw;
+  }
+  .dCover{position:relative;z-index:1;width:100vw;height:52.29vw;}
+  .dCover img{display:block;width:100%;height:100%;object-fit:cover;}
+  .dShade{
+    position:absolute;inset:0;background:#4A2D13;opacity:0;
+    pointer-events:none;
+  }
+  .dBody{position:relative;background:var(--brown);}
+
+  /* ---------- footer ---------- */
+  #footer{position:relative;padding-top:10vh;}
+  #footStrip{width:100%;display:block;}
+  #footBody{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;
+    width:min(1240px,88vw);margin:9vh auto 0;padding-bottom:11vh;
+    color:var(--cream);
+  }
+  #footLeft img{width:190px;height:auto;}
+  #footLeft p{
+    margin-top:36px;font-size:17px;line-height:1.45;font-weight:500;opacity:.95;
+  }
+  #footLeft .copy{margin-top:26px;font-size:15px;opacity:.75;}
+  #footCols{display:flex;gap:clamp(40px,8vw,120px);}
+  .fcol h4{
+    font-size:15px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;margin-bottom:20px;
+  }
+  .fcol a{
+    display:block;color:var(--cream);text-decoration:none;
+    font-size:16px;font-weight:500;margin-bottom:14px;opacity:.9;
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .fcol a:hover{opacity:1;transform:translateX(4px);}
