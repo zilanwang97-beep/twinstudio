@@ -7,6 +7,8 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
+    "products:update": "node scripts/update-products.mjs",
+    "products:check": "node scripts/update-products.mjs --check",
     "migrate:sources": "node scripts/migrate-sources.mjs"
   },
   "devDependencies": {

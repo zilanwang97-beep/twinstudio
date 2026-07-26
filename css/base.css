@@ -44,12 +44,23 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--cream); outline
 .title-lockup-picture,
 .slogan-base-picture { display: block; width: 100%; }
 
-@media (min-width: 1024px) {
+@media (min-width: 821px) {
   body[data-route="home"] #app-frame,
   body[data-route="philosophy"] #app-frame,
   body[data-route="lookbook"] #app-frame { display: none; }
 
   body[data-route="collection"] #desktop-shell,
   body[data-route="detail"] #desktop-shell,
-  body[data-route="story"] #desktop-shell { display: none; }
+  body[data-route="story"] #desktop-shell,
+  body[data-route="shop"] #desktop-shell { display: none; }
+}
+.icon-strip {
+  background-image: url("/assets/shared/strips/footer-strip.svg");
+  background-repeat: repeat-x;
+  background-position: left center;
+  background-size: auto 100%;
+}
+
+.story-desktop-layout {
+  display: none;
 }

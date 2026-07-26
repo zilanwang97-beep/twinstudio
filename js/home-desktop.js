@@ -2,14 +2,14 @@
 
 /* ================= data ================= */
 const ASSETS = {
-  bulldog:"/assets/desktop/bulldog.svg", teddy:"/assets/desktop/teddy.svg", stretch:"/assets/desktop/stretch.svg",
-  banana:"/assets/desktop/banana.svg", zebra:"/assets/desktop/zebra.svg", frenchie:"/assets/desktop/frenchie.svg",
-  bonehead:"/assets/desktop/bonehead.svg",
-  image0:"/assets/desktop/image0.jpg", image1:"/assets/desktop/image1.jpg", image2:"/assets/desktop/image2.jpg",
+  bulldog:"/assets/shared/home/hero/bulldog.svg", teddy:"/assets/shared/home/hero/teddy.svg", stretch:"/assets/shared/home/hero/stretch.svg",
+  banana:"/assets/shared/home/hero/banana.svg", zebra:"/assets/shared/home/hero/zebra.svg", frenchie:"/assets/shared/home/hero/frenchie.svg",
+  bonehead:"/assets/shared/home/hero/bonehead.svg",
+  image0:"/assets/shared/home/hero/image0.jpg", image1:"/assets/shared/home/hero/image1.jpg", image2:"/assets/shared/home/hero/image2.jpg",
   logo:"/assets/desktop/logo.svg",
-  lb0:"/assets/desktop/lb0.jpg", lb1:"/assets/desktop/lb1.jpg", lb2:"/assets/desktop/lb2.jpg", lb3:"/assets/desktop/lb3.jpg", lb4:"/assets/desktop/lb4.jpg",
-  lb5:"/assets/desktop/lb5.jpg", lb6:"/assets/desktop/lb6.jpg", lb7:"/assets/desktop/lb7.jpg", lb8:"/assets/desktop/lb8.jpg", lb9:"/assets/desktop/lb9.jpg", lb10:"/assets/desktop/lb10.jpg",
-  mask1:"/assets/desktop/mask1.svg", mask3:"/assets/desktop/mask3.svg", mask5:"/assets/desktop/mask5.svg", mask6:"/assets/desktop/mask6.svg"
+  lb0:"/assets/shared/lookbook/images/lb0.jpg", lb1:"/assets/shared/lookbook/images/lb1.jpg", lb2:"/assets/shared/lookbook/images/lb2.jpg", lb3:"/assets/shared/lookbook/images/lb3.jpg", lb4:"/assets/shared/lookbook/images/lb4.jpg",
+  lb5:"/assets/shared/lookbook/images/lb5.jpg", lb6:"/assets/shared/lookbook/images/lb6.jpg", lb7:"/assets/shared/lookbook/images/lb7.jpg", lb8:"/assets/shared/lookbook/images/lb8.jpg", lb9:"/assets/shared/lookbook/images/lb9.jpg", lb10:"/assets/shared/lookbook/images/lb10.jpg",
+  mask1:"/assets/shared/lookbook/masks/mask1.svg", mask3:"/assets/shared/lookbook/masks/mask3.svg", mask5:"/assets/shared/lookbook/masks/mask5.svg", mask6:"/assets/shared/lookbook/masks/mask6.svg"
 };
 
 /* design-space element table (1440x900) */
@@ -39,9 +39,6 @@ const T = {
   wordRise:[.14,.39],
 };
 
-/* header design coords */
-const HEADER = {logo:{x:123,y:56,w:87}, burger:{x:1276,y:55,w:51}};
-
 /* ================= build DOM ================= */
 const stage = document.getElementById('stage');
 const wordLayer = document.getElementById('wordLayer');
@@ -69,15 +66,7 @@ for (const r of RIDERS){
   r.node = n;
 }
 
-/* header placement (scaled like stage but pinned) */
-const hLogo = document.getElementById('hLogo');
-document.getElementById('hLogoImg').src = ASSETS.logo;
-const hBurger = document.getElementById('hBurger');
-hLogo.addEventListener('click', () => {
-  history.pushState('', '', location.pathname);
-  dispatchEvent(new HashChangeEvent('hashchange'));
-  window.scrollTo({top:0, behavior:'smooth'});
-});
+/* header placement moved to js/menu.js (layoutSiteChrome) */
 
 /* hand-drawn marquees: tileW = repeat period in design px (PNG is 2x) */
 function buildRoll(id, src, tileW){
@@ -89,19 +78,26 @@ function buildRoll(id, src, tileW){
   const dur = (tileW*M/70).toFixed(1);   /* ~70 design px / second */
   el.innerHTML = `<div class="roll-track" style="animation-duration:${dur}s">${half}${half}</div>`;
 }
-buildRoll('marquee',   "/assets/desktop/roll1.png", 1225);
-buildRoll('lbMarquee', "/assets/desktop/roll2.png", 254);
-buildRoll('footRoll',  "/assets/desktop/roll3.png", 854);
-buildRoll('collRoll',  "/assets/desktop/roll4.png", 1464);
-buildRoll('storyRoll1',"/assets/desktop/roll1.png", 1225);
-buildRoll('storyRoll2',"/assets/desktop/roll1.png", 1225);
+buildRoll('marquee',   "/assets/shared/strips/home-story-strip.svg", 1547);
+buildRoll('lbMarquee', "/assets/shared/strips/lookbook-strip.svg", 1524);
+buildRoll('footRoll',  "/assets/shared/strips/footer-strip.svg", 1732);
+buildRoll('collRoll',  "/assets/shared/strips/category-strip.svg", 1464);
+buildRoll('storyRoll1',"/assets/shared/strips/home-story-strip.svg", 1547);
+buildRoll('storyRoll2',"/assets/shared/strips/home-story-strip.svg", 1547);
 
 /* instagram photo marquee: 6 cards looping horizontally.
    margin-right (not flex gap) keeps the -50% loop seamless. */
 {
   const insRoll = document.getElementById('insRoll');
   if (insRoll) {
-    const INS = ["/assets/mobile/story-ins-1.png","/assets/mobile/story-ins-2.png","/assets/mobile/story-ins-3.png","/assets/mobile/story-ins-4.png","/assets/mobile/story-ins-5.png","/assets/mobile/story-ins-6.png"];
+    const INS = [
+      "/assets/shared/story/instagram/story-ins-1.jpg",
+      "/assets/shared/story/instagram/story-ins-2.jpg",
+      "/assets/shared/story/instagram/story-ins-3.jpg",
+      "/assets/shared/story/instagram/story-ins-4.jpg",
+      "/assets/shared/story/instagram/story-ins-5.jpg",
+      "/assets/shared/story/instagram/story-ins-6.jpg"
+    ];
     const half = INS.map(s => `<img src="${s}" alt="">`).join('');
     const period = 6 * 277.2;
     insRoll.innerHTML = `<div class="roll-track" style="animation-duration:${(period/70).toFixed(1)}s">${half}${half}</div>`;
@@ -127,7 +123,7 @@ LB_CELLS.forEach((c, order) => {
                     `width:${c.w/1440*100}%;height:${c.h/GRID_H*100}%;`+
                     `transition-delay:${(order%3)*90}ms;`;
   if (c.explore){
-    d.innerHTML = `<img src="/assets/desktop/explore.svg" alt="Explore more — collection series">`;
+    d.innerHTML = `<img src="/assets/shared/lookbook/explore.svg" alt="Explore more — collection series">`;
     d.addEventListener('click', () => { location.hash = 'collection'; });
   } else {
     d.innerHTML = `<img class="ph" src="${ASSETS['lb'+c.i]}" alt="">`+
@@ -139,18 +135,6 @@ const lbObs = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting){ e.target.classList.add('show'); lbObs.unobserve(e.target); }
 }), {threshold:.18});
 document.querySelectorAll('.lb-cell').forEach(c => lbObs.observe(c));
-
-/* menu toggle */
-const setMenu = open => document.body.classList.toggle('menu-open', open);
-hBurger.addEventListener('click', ev => {
-  ev.stopPropagation();
-  setMenu(!document.body.classList.contains('menu-open'));
-});
-addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-document.addEventListener('click', e => {
-  if (document.body.classList.contains('menu-open') &&
-      !e.target.closest('#menuPanel')) setMenu(false);
-});
 
 /* OUR STORY button → story page */
 document.getElementById('storyBtn').addEventListener('click', () => {
@@ -207,37 +191,6 @@ function measure(){
     if (c.el === 'chMilo') c.dx = -(674.5 + mC/sG);
     if (c.el === 'chBobo') c.dx =   629   + mC/sG;
   }
-
-  /* header: viewport-relative, gentle size clamp */
-  const sH = Math.min(1.25, Math.max(.8, vw/1440));
-  const L = HEADER.logo, B = HEADER.burger;
-  hLogo.style.left  = Math.max(18, vw*L.x/1440)+'px';
-  hLogo.style.top   = (L.y*sH)+'px';
-  hLogo.style.width = (L.w*sH)+'px';
-  const hBack = document.getElementById('hBack');
-  hBack.style.left  = Math.max(18, vw*131/1440)+'px';
-  hBack.style.top   = (60*sH)+'px';
-  hBack.style.width = (17*sH)+'px';
-  const bLeft = Math.min(vw - 35*sH - 18, vw*B.x/1440);
-  hBurger.style.left  = bLeft+'px';
-  hBurger.style.top   = (B.y*sH)+'px';
-  hBurger.style.width = (B.w*sH)+'px';
-
-  /* menu panel: full width, height follows design ratio (300/1440).
-     ONE scale factor k drives panel height, link position, spacing AND
-     font size, so the text always sits at the same spot of the wave. */
-  const hp = Math.min(330, Math.max(235, vw*300/1440));
-  const k = hp/300;
-  const panel = document.getElementById('menuPanel');
-  panel.style.height = hp+'px';
-  const links = document.getElementById('menuLinks');
-  links.style.right = (vw - bLeft - 35*sH)+'px';       /* right-align to burger */
-  /* design: items every 42px starting y126, SHOP bottom at 265 → 35px
-     breathing room above the panel's bottom edge at every size.
-     line-height is 1, so row pitch = gap + font-size = 42k exactly. */
-  links.style.top = (124*k)+'px';
-  links.style.gap = (24*k)+'px';
-  links.style.fontSize = (18*k)+'px';
 }
 addEventListener('resize', () => { measure(); if (p>=0) render(p); });
 /* first measure() runs after CHARS is defined below */

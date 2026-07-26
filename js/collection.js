@@ -32,8 +32,6 @@ export function initCollection() {
     const categoryControl = event.target.closest("[data-category]");
     if (categoryControl) navigate("detail", categoryControl.dataset.category);
 
-    if (event.target.closest("#detail-back-btn")) navigate("collection");
-
     if (event.target.closest("#load-more-btn")) {
       $$("#product-grid .hidden-item").forEach(card => card.classList.remove("hidden-item"));
       const button = $("#load-more-btn");
@@ -45,7 +43,7 @@ export function initCollection() {
 
 export function renderDetail(categoryId) {
   const category = CATEGORIES.find(item => item.id === categoryId) ?? CATEGORIES[0];
-  const products = category.products.length ? category.products : PRODUCTS.art;
+  const products = category.products;
 
   $("#detail-slogan-text").textContent = category.slogan;
   $("#detail-hero-img").src = category.hero;
