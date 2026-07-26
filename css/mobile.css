@@ -1,8 +1,664 @@
 @import url("./mobile-source.css");
 
-@media (max-width: 1023.98px) {
+@media (max-width: 820.98px) {
   #desktop-shell { display: none !important; }
   .app-frame { width: 100%; min-height: 100dvh; height: auto; overflow: visible; }
   .marker { font-family: "Pizza Marker", cursive; }
   .view.active { display: block; }
+
+  /* Keep mobile Collection cards visually identical after section-panel markup */
+  .section-visual { position: absolute; inset: 0; }
+  .section-panel { display: contents; }
+  .section-desc { display: none; }
+  .shopnow-desktop { display: none; }
+
+  /* ================= MOBILE HOME ================= */
+  .mobile-home-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .mobile-home-view {
+    background: var(--brown);
+    overflow: clip;
+  }
+
+  .mobile-home-hero {
+    position: relative;
+    height: 310dvh;
+  }
+
+  .mobile-home-hero-viewport {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    background: var(--brown);
+  }
+
+  .mobile-home-stage {
+    position: absolute;
+    inset: 0;
+  }
+
+  .mobile-home-el {
+    position: absolute;
+    will-change: transform;
+    transform-origin: center;
+  }
+
+  .mobile-home-el > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mobile-home-rider {
+    z-index: 6;
+    aspect-ratio: 1.5;
+  }
+
+  .mobile-home-rider .mobile-rider-pose {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity .12s ease;
+  }
+
+  .mobile-home-rider .mobile-rider-land {
+    opacity: 0;
+  }
+
+  .mobile-home-rider.is-landed .mobile-rider-air {
+    opacity: 0;
+  }
+
+  .mobile-home-rider.is-landed .mobile-rider-land {
+    opacity: 1;
+  }
+
+  .mobile-home-photo {
+    overflow: hidden;
+    border-radius: 50%;
+    isolation: isolate;
+  }
+
+  .mobile-home-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(76, 43, 8, .38);
+    mix-blend-mode: color;
+  }
+
+  .mobile-home-photo img {
+    object-fit: cover;
+  }
+
+  .mh-bulldog   { left: 19%; top: 11%; width: 24%; }
+  .mh-stretch   { left: 50%; top: 12%; width: 31%; }
+  .mh-banana    { left: 13%; top: 27%; width: 14%; }
+  .mh-photo-one { left: 43%; top: 24%; width: 18%; aspect-ratio: 1; }
+  .mh-teddy     { left: 81%; top: 25%; width: 9%; }
+  .mh-bonehead  { left: 21%; top: 39%; width: 15%; }
+  .mh-frenchie  { left: 54%; top: 38%; width: 25%; }
+  .mh-dachshund { left: 13%; top: 51%; width: 15%; }
+  .mh-pig       { left: 45%; top: 53%; width: 15%; }
+  .mh-photo-zero{ left: 73%; top: 50%; width: 18%; aspect-ratio: 1; }
+  .mh-photo-two { left: 21%; top: 64%; width: 18%; aspect-ratio: 1; }
+  .mh-zebra     { left: 52%; top: 62%; width: 29%; }
+
+  .mobile-home-wordmark {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    aspect-ratio: 401 / 204;
+    z-index: 4;
+    will-change: transform;
+    transform: translateY(120%);
+  }
+
+  .mobile-wordmark-base {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mobile-wordmark-part {
+    position: absolute;
+    z-index: 2;
+    object-fit: contain;
+    will-change: transform;
+  }
+
+  .mobile-hand-l,
+  .mobile-hand-r {
+    top: 3%;
+    width: 21%;
+    height: 53%;
+  }
+
+  .mobile-hand-l {
+    left: 38%;
+    transform-origin: 25% 97%;
+  }
+
+  .mobile-hand-r {
+    left: 39%;
+    transform-origin: 85% 97%;
+  }
+
+  .mobile-paw-small {
+    left: 62%;
+    top: 8%;
+    width: 10%;
+    height: 38%;
+    transform-origin: 50% 100%;
+  }
+
+  .mobile-paw-tall {
+    left: 74%;
+    top: 45%;
+    width: 9%;
+    height: 55%;
+    transform-origin: 50% 100%;
+  }
+
+  .mobile-home-wordmark .mobile-hand-l {
+    animation: mobileHomeSway 2.6s ease-in-out infinite;
+  }
+
+  .mobile-home-wordmark .mobile-hand-r {
+    animation: mobileHomeSway 2.6s ease-in-out infinite -1.3s;
+  }
+
+  .mobile-home-wordmark .mobile-paw-small {
+    animation: mobileHomeGrabSmall 1.9s ease-in-out infinite .4s;
+  }
+
+  .mobile-home-wordmark .mobile-paw-tall {
+    animation: mobileHomeGrabTall 2.3s ease-in-out infinite .9s;
+  }
+
+  @keyframes mobileHomeSway {
+    0%, 100% { transform: rotate(-3.5deg); }
+    50% { transform: rotate(3.5deg); }
+  }
+
+  @keyframes mobileHomeGrabSmall {
+    0%, 55%, 100% { transform: scaleY(1) rotate(0deg); }
+    20% { transform: scaleY(1.08) rotate(-3deg); }
+    38% { transform: scaleY(.955); }
+  }
+
+  @keyframes mobileHomeGrabTall {
+    0%, 60%, 100% { transform: scaleY(1); }
+    25% { transform: scaleY(1.055) rotate(1deg); }
+    45% { transform: scaleY(.975); }
+  }
+
+  .mobile-home-philosophy {
+    position: relative;
+    min-height: 60dvh;
+    padding: 8dvh 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--brown);
+  }
+
+  .mobile-home-philosophy > img {
+    width: min(72cqw, 520px);
+    height: auto;
+  }
+
+  .mobile-home-story-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3cqw;
+    min-width: 36cqw;
+    min-height: 7.5cqw;
+    margin-top: 10cqw;
+    margin-bottom: 10cqw;
+    padding: 1.4cqw 2.5cqw;
+    color: var(--brown);
+    background: var(--cream2);
+    font-size: 4cqw;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .mobile-home-strip {
+    width: 100%;
+    height: 7.46cqw;
+    margin-top: auto;
+    background: url("/assets/shared/strips/home-story-strip.svg") repeat-x left center / auto 100%;
+    animation: storyStripSlide 30s linear infinite;
+  }
+
+  .mobile-home-characters {
+    position: relative;
+    height: 80dvh;
+    min-height: 700px;
+    overflow: hidden;
+    background: var(--brown);
+  }
+
+  .mobile-character-scene {
+    position: relative;
+    width: min(100%, 430px);
+    height: 100%;
+    margin-inline: auto;
+  }
+
+  .mobile-character-scene img {
+    width: 100%;
+    height: auto;
+  }
+
+  .mobile-character-title,
+  .mobile-character-copy,
+  .mobile-character-dog,
+  .mobile-character-friend {
+    position: absolute;
+  }
+
+  /* The type is part of the background composition; characters cross in
+     front of it as they enter the scene. */
+  .mobile-character-title,
+  .mobile-character-copy {
+    z-index: 1;
+  }
+
+  .mobile-character-dog {
+    z-index: 3;
+  }
+
+  .mobile-character-friend {
+    z-index: 4;
+  }
+
+  .mobile-character-scene .mh-title-milo {
+    left: 28%;
+    top: 12%;
+    width: 34%;
+  }
+
+  .mobile-character-scene .mh-copy-milo {
+    left: 25%;
+    top: 21.5%;
+    width: 39%;
+  }
+
+  .mh-milo {
+    left: 7%;
+    top: 30%;
+    width: 70%;
+    transform: translateX(-125%);
+  }
+
+  .mobile-character-scene .mh-character-pig {
+    left: 6%;
+    top: 58%;
+    width: 17%;
+  }
+
+  .mobile-character-scene .mh-character-teddy {
+    left: 20%;
+    top: 72%;
+    width: 17%;
+  }
+
+  .mh-bobo {
+    left: 35%;
+    top: 51%;
+    width: 54%;
+    transform: translateX(125%);
+  }
+
+  .mobile-character-scene .mh-title-bobo {
+    left: 49%;
+    top: 74%;
+    width: 36%;
+  }
+
+  .mobile-character-scene .mh-copy-bobo {
+    left: 43%;
+    top: 84.5%;
+    width: 45%;
+  }
+
+  .mobile-character-copy {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity .65s ease 1.35s,
+      transform .65s cubic-bezier(.22, .72, .2, 1) 1.35s;
+  }
+
+  .mobile-character-scene.is-visible .mobile-character-copy {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-character-dog {
+    will-change: transform;
+    transition: transform 1.4s cubic-bezier(.22, .72, .2, 1);
+  }
+
+  .mobile-character-scene.is-visible .mh-milo {
+    transform: translateX(0);
+  }
+
+  .mobile-character-scene.is-visible .mh-bobo {
+    transform: translateX(0);
+  }
+
+  .mobile-character-scene.is-visible .mobile-character-dog img {
+    animation:
+      mobileCharacterWalk .48s ease-in-out 3,
+      mobileHomeBreathe 3.4s ease-in-out infinite 1.44s;
+    transform-origin: 50% 96%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-character-dog,
+    .mobile-character-copy {
+      transition: none;
+    }
+
+    .mobile-character-copy {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes mobileCharacterWalk {
+    0%, 100% { transform: rotate(2.4deg) translateY(0); }
+    25% { transform: rotate(0) translateY(-5px); }
+    50% { transform: rotate(-2.4deg) translateY(0); }
+    75% { transform: rotate(0) translateY(-5px); }
+  }
+
+  @keyframes mobileHomeBreathe {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.012) rotate(.3deg); }
+  }
+
+  .mobile-home-lookbook {
+    position: relative;
+    padding-top: 5dvh;
+    overflow: hidden;
+    background: var(--brown);
+  }
+
+  .mobile-lookbook-strip {
+    width: 100%;
+    height: 7.46cqw;
+    margin-bottom: 3cqw;
+    background: url("/assets/shared/strips/lookbook-strip.svg") repeat-x left center / auto 100%;
+    animation: storyStripSlide 30s linear infinite;
+  }
+
+  .mobile-lookbook-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-lookbook-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-lookbook-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 47cqw);
+    grid-auto-flow: column;
+    grid-auto-columns: 47cqw;
+    gap: 1.5cqw;
+    width: max-content;
+    padding: 0 1.5cqw 2.5cqw;
+  }
+
+  .mobile-lookbook-cell {
+    position: relative;
+    width: 47cqw;
+    height: 47cqw;
+    margin: 0;
+    overflow: hidden;
+    background: var(--brown);
+  }
+
+  .mobile-lookbook-cell > img:first-child {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mobile-lookbook-cell .mobile-lookbook-mask {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity .85s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .mobile-lookbook-cell .mobile-lookbook-mask.is-hidden {
+    opacity: 0;
+  }
+
+  .mobile-lookbook-explore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-lookbook-explore > img:first-child {
+    width: 82%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+/* ================= TABLET: 600–1023px ================= */
+
+@media (min-width: 600px) and (max-width: 820.98px) {
+  :root {
+    /* 平板内容最大宽度 */
+    --maxw: 720px;
+  }
+
+  /* 平板页面主体 */
+  .app-frame {
+    width: 100%;
+    max-width: var(--maxw);
+  }
+
+  /* Header 不跟随 cqw 无限放大 */
+  .site-header {
+    width: min(100%, var(--maxw));
+    height: 120px;
+    padding: 0 44px;
+  }
+
+  .site-logo {
+    height: 54px;
+  }
+
+  .site-burger {
+    width: 36px;
+    min-height: 30px;
+    gap: 7px;
+    padding: 4px 0;
+  }
+
+  .site-burger-bars {
+    gap: 7px;
+  }
+
+  .site-burger-bars span {
+    height: 5px;
+  }
+
+  /* 给固定 Header 留出空间 */
+  .app-frame > .view {
+    padding-top: 120px;
+  }
+
+  /* 展开菜单 */
+  .site-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(260px, 65dvh, 520px);
+    overflow: hidden;
+  }
+
+  .site-menu-mobile-bg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .site-menu-links {
+    top: 150px;
+    right: 44px;
+    gap: 32px;
+  }
+
+  .site-menu-links a {
+    font-size: 24px;
+  }
+
+  /* Story 正文，避免跟着平板宽度变得过大 */
+  #view-story .story-text {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 46px;
+    padding-right: 46px;
+    font-size: 19px;
+    line-height: 1.45;
+  }
+
+  /* Story 插画不要铺得过宽 */
+  #view-story .story-illus {
+    width: min(82cqw, 600px);
+  }
+
+  /* Story collage 文字 */
+  #view-story .collage-caption h3 {
+    font-size: clamp(28px, 5cqw, 36px);
+  }
+
+  #view-story .collage-caption p {
+    font-size: clamp(17px, 2.8cqw, 20px);
+  }
+
+  /* Instagram 图片 */
+  #view-story .ins-scroller img {
+    width: 330px;
+    border-radius: 18px;
+  }
+
+  #view-story .ins-group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 72px 64px 60px;
+  }
+
+  .footer-logo-img {
+    width: 300px;
+  }
+
+  .footer-tagline {
+    margin: 28px 0 54px;
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  .footer-col h4 {
+    font-size: 17px;
+  }
+
+  .footer-col a {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .footer-copy {
+    font-size: 16px;
+  }
+}
+@media (max-width: 820.98px) {
+  body {
+    background: var(--brown);
+  }
+
+  /* Mobile menu belongs to the viewport, not the centered app-frame. */
+  .site-menu {
+    position: fixed;
+    inset: 0 auto auto 0;
+    width: 100vw;
+    max-width: none;
+    height: clamp(262px, 65vw, 520px);
+    aspect-ratio: auto;
+    overflow: visible;
+    transform: translateY(-104%);
+  }
+
+  .site-menu.is-open,
+  body.menu-open .site-menu {
+    transform: translateY(0);
+  }
+
+  .site-menu-mobile-bg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: none;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 14px 20px rgba(24, 10, 2, .38));
+  }
+
+  .site-menu-links {
+    right: calc(
+      (100vw - min(100vw, var(--maxw))) / 2
+      + min(100vw, var(--maxw)) * .0709
+    );
+  }
+}
+
+@media (min-width: 600px) and (max-width: 820.98px) {
+  .site-menu-links {
+    right: calc((100vw - min(100vw, var(--maxw))) / 2 + 44px);
+  }
 }

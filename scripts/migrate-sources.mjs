@@ -60,7 +60,14 @@ desktopScript = desktopScript.replace(
   `{
   const insRoll = document.getElementById('insRoll');
   if (insRoll) {
-    const INS = ["/assets/mobile/story-ins-1.png","/assets/mobile/story-ins-2.png","/assets/mobile/story-ins-3.png","/assets/mobile/story-ins-4.png","/assets/mobile/story-ins-5.png","/assets/mobile/story-ins-6.png"];
+    const INS = [
+      "/assets/shared/story/instagram/story-ins-1.jpg",
+      "/assets/shared/story/instagram/story-ins-2.jpg",
+      "/assets/shared/story/instagram/story-ins-3.jpg",
+      "/assets/shared/story/instagram/story-ins-4.jpg",
+      "/assets/shared/story/instagram/story-ins-5.jpg",
+      "/assets/shared/story/instagram/story-ins-6.jpg"
+    ];
     const half = INS.map(s => \`<img src="\${s}" alt="">\`).join('');
     const period = 6 * 277.2;
     insRoll.innerHTML = \`<div class="roll-track" style="animation-duration:\${(period/70).toFixed(1)}s">\${half}\${half}</div>\`;

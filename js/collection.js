@@ -10,12 +10,17 @@ export function initCollection() {
 
   sections.innerHTML = CATEGORIES.map(category => `
     <article class="section-card" id="section-${category.id}">
-      <img src="${category.hero}" alt="${category.label}" loading="lazy">
-      <div class="section-slogan marker">${category.slogan}</div>
-      <h2 class="section-caption futura">${category.label}</h2>
-      <button class="explore-btn" type="button" data-category="${category.id}">
-        EXPLORE <span class="plus" aria-hidden="true">+</span>
-      </button>
+      <div class="section-visual">
+        <img src="${category.hero}" alt="${category.label}" loading="lazy">
+        <div class="section-slogan marker">${category.slogan}</div>
+      </div>
+      <div class="section-panel">
+        <h2 class="section-caption futura">${category.label}</h2>
+        <p class="section-desc">${category.blurb || ""}</p>
+        <button class="explore-btn" type="button" data-category="${category.id}">
+          EXPLORE <span class="plus" aria-hidden="true">+</span>
+        </button>
+      </div>
     </article>
   `).join("");
 
@@ -26,8 +31,6 @@ export function initCollection() {
   document.addEventListener("click", event => {
     const categoryControl = event.target.closest("[data-category]");
     if (categoryControl) navigate("detail", categoryControl.dataset.category);
-
-    if (event.target.closest("#detail-back-btn")) navigate("collection");
 
     if (event.target.closest("#load-more-btn")) {
       $$("#product-grid .hidden-item").forEach(card => card.classList.remove("hidden-item"));
@@ -40,7 +43,7 @@ export function initCollection() {
 
 export function renderDetail(categoryId) {
   const category = CATEGORIES.find(item => item.id === categoryId) ?? CATEGORIES[0];
-  const products = category.products.length ? category.products : PRODUCTS.art;
+  const products = category.products;
 
   $("#detail-slogan-text").textContent = category.slogan;
   $("#detail-hero-img").src = category.hero;

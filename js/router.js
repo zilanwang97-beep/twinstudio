@@ -1,4 +1,4 @@
-const VALID_PAGES = new Set(["home", "philosophy", "lookbook", "collection", "detail", "story"]);
+const VALID_PAGES = new Set(["home", "philosophy", "lookbook", "collection", "detail", "story", "shop"]);
 
 export function readRoute() {
   const raw = location.hash.replace(/^#/, "");
