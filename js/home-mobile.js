@@ -1,3 +1,5 @@
+import { mountCharacterInteraction } from "./character-interaction.js";
+
 const MOBILE_QUERY = "(max-width: 820.98px)";
 
 let initialized = false;
@@ -9,6 +11,9 @@ let lookbookPauseUntil = 0;
 let lookbookLoopWidth = 0;
 let lookbookScroll;
 let lookbookMaskTimers = [];
+let mobileCharacterRig;
+let mobileCharacterReadyTimer = 0;
+let mobileCharacterAutoplayTimer = 0;
 
 const pauseMobileLookbook = () => {
   lookbookPauseUntil = performance.now() + 2400;
@@ -156,10 +161,22 @@ export function initMobileHome() {
 
   const characterScene = document.querySelector("#mobile-character-scene");
   if (characterScene) {
+    mobileCharacterRig = mountCharacterInteraction(
+      document.querySelector("#character-interaction-mobile"),
+      { autoplay: false },
+    );
     characterObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         characterScene.classList.add("is-visible");
+        mobileCharacterReadyTimer = window.setTimeout(async () => {
+          const rig = await mobileCharacterRig;
+          if (!rig || !characterScene.isConnected) return;
+          characterScene.classList.add("interaction-ready");
+          mobileCharacterAutoplayTimer = window.setTimeout(() => {
+            rig.setAutoplay(true);
+          }, 450);
+        }, 1500);
         characterObserver?.unobserve(characterScene);
       });
     }, { threshold: .35 });
@@ -181,6 +198,12 @@ export function destroyMobileHome() {
   lookbookScroll?.removeEventListener("wheel", pauseMobileLookbook);
   lookbookScroll?.removeEventListener("focusin", pauseMobileLookbook);
   characterObserver?.disconnect();
+  clearTimeout(mobileCharacterReadyTimer);
+  clearTimeout(mobileCharacterAutoplayTimer);
+  mobileCharacterRig?.then(rig => rig?.destroy());
+  mobileCharacterRig = null;
+  mobileCharacterReadyTimer = 0;
+  mobileCharacterAutoplayTimer = 0;
   frameRequest = 0;
   lookbookFrame = 0;
   lookbookLastTime = 0;

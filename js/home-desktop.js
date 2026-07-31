@@ -1,5 +1,7 @@
 /* Migrated from the original desktop template. */
 
+import { mountCharacterInteraction } from "./character-interaction.js";
+
 /* ================= data ================= */
 const ASSETS = {
   bulldog:"/assets/shared/home/hero/bulldog.svg", teddy:"/assets/shared/home/hero/teddy.svg", stretch:"/assets/shared/home/hero/stretch.svg",
@@ -158,6 +160,9 @@ let targetP = 0, p = -1;
 const zone = document.getElementById('scrollzone');
 const hint = document.getElementById('hint');
 const philosophy = document.getElementById('philosophy');
+const charStage = document.getElementById('charStage');
+const desktopCharacterInteraction = document.getElementById('character-interaction-desktop');
+const desktopCharacterRig = mountCharacterInteraction(desktopCharacterInteraction);
 
 /* responsive scales, recomputed on resize:
    sW — wordmark layer, fits viewport WIDTH (full bleed, never cropped)
@@ -282,6 +287,9 @@ function renderChar(qv){
   const showPara = qv > .82;
   paraMilo.style.opacity = showPara ? 1 : 0;
   paraBobo.style.opacity = showPara ? 1 : 0;
+  if (qv >= .999) {
+    desktopCharacterRig.then(() => charStage.classList.add('interaction-ready'));
+  }
 }
 measure();       /* initial layout (needs CHARS + RIDERS defined) */
 renderChar(0);   /* dogs wait outside the frame */

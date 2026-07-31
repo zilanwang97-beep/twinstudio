@@ -289,7 +289,131 @@
     position:absolute;left:50%;top:50%;
     width:1440px;height:900px;transform-origin:center;
   }
-  .ch{position:absolute;will-change:transform,opacity;z-index:1;}
+  .ch{
+    position:absolute;
+    will-change:transform,opacity;
+    z-index:1;
+    transition:opacity .34s ease .08s;
+  }
+  .character-interaction-desktop{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .34s ease;
+  }
+  .character-interaction-desktop .character-interaction-svg{
+    display:block;
+    width:100%;
+    height:100%;
+    overflow:visible;
+  }
+  .character-interaction-desktop .character-interaction-svg [tabindex]:focus{
+    outline:none;
+  }
+  .character-interaction-desktop .character-interaction-svg [tabindex]:focus-visible{
+    outline:3px dashed rgba(247,236,216,.88);
+    outline-offset:8px;
+  }
+  .character-callout{
+    position:absolute;
+    z-index:6;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    color:var(--cream);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.11em;
+    line-height:1.25;
+    text-align:center;
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .45s ease,transform .45s ease;
+  }
+  .character-callout img{
+    display:block;
+    width:100%;
+    height:auto;
+    transform-origin:55% 62%;
+    filter:drop-shadow(0 2px 0 rgba(76,43,8,.2));
+    animation:characterArrowNudge 1.65s cubic-bezier(.45,0,.3,1) infinite;
+  }
+  .character-callout span{
+    padding:4px 8px;
+    border-radius:999px;
+    background:rgba(78,43,9,.84);
+    box-shadow:0 0 0 1px rgba(247,236,216,.18);
+  }
+  .character-callout-milo{
+    left:1040px; /* 左右位置：增大向右，减小向左 */
+    top:290px; /* 上下位置：增大向下，减小向上 */
+    width:80px; /* 箭头大小 */
+    transform:translateY(8px) rotate(30deg); /* 箭头角度 */
+  }
+  .character-callout-milo span{
+    transform:translate(50px, -10px) rotate(-11deg);
+  }
+  .character-callout-toy{
+    left:398px;
+    top:820px;
+    width:80px;
+    transform:translateY(8px) rotate(27deg);
+  }
+  .character-callout-toy img {
+    transform: scale(-1); /* 上下翻转，箭头改为向上指 */
+  }
+  .character-callout-toy span{
+    transform:translate(-65px, -60px) rotate(12deg);
+  }
+  .character-callout-toy img {
+    animation-name: characterArrowNudgeUp;
+  }
+  
+  @keyframes characterArrowNudgeUp {
+    0%, 100% {
+      transform: scale(-1) translate(0, 0) rotate(-1deg);
+    }
+  
+    45% {
+      transform: scale(-1) translate(-7px, 7px) rotate(2deg);
+    }
+  
+    65% {
+      transform: scale(-1) translate(-5px, 5px) rotate(1deg);
+    }
+  }
+  #charStage.interaction-ready:not(.has-shaken) .character-callout-milo{
+    opacity:.94;
+    transform:translateY(0) rotate(30deg);
+  }
+  #charStage.interaction-ready:not(.has-launched) .character-callout-toy{
+    opacity:.94;
+    transform:translateY(0) rotate(7deg);
+  }
+  #charStage.has-shaken .character-callout-milo,
+  #charStage.has-launched .character-callout-toy{
+    opacity:0;
+  }
+  @keyframes characterArrowNudge{  /* 箭头摆动幅度 */
+    0%,100%{transform:translate(0,0) rotate(-1deg);}
+    45%{transform:translate(-7px,7px) rotate(2deg);}
+    65%{transform:translate(-5px,5px) rotate(1deg);}
+  }
+  #charStage.interaction-ready .character-interaction-desktop{
+    opacity:1;
+    pointer-events:auto;
+  }
+  #charStage.interaction-ready #chMilo,
+  #charStage.interaction-ready #chBobo,
+  #charStage.interaction-ready #chPig,
+  #charStage.interaction-ready #chTeddy{
+    opacity:0;
+    pointer-events:none;
+  }
   /* dogs walk in front of the text blocks */
   #chMilo,#chBobo{z-index:3;}
   #chPig,#chTeddy{z-index:2;}
