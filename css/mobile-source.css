@@ -280,10 +280,12 @@ body.menu-open .site-menu{
   55%{transform:scaleY(0.965);}
 }
 
-/* clickable hotspot over the baked-in SHOP NOW button */
+/* Real CTA in the original SHOP NOW artwork slot. */
 .shopnow-hotspot{
   position:absolute;
   left:38.6%;top:84.4%;width:26.4%;height:7%;
+  gap:3cqw;padding:1.4cqw 2.5cqw;
+  font-size:4cqw;
 }
 
 .sections{
@@ -340,7 +342,7 @@ body.menu-open .site-menu{
 /* ---------- Footer ---------- */
 .site-footer{
   background:var(--brown);
-  padding:13.8cqw 9.95cqw 10.7cqw;
+  padding:13.8cqw 5.97cqw 10.7cqw;
 }
 .footer-logo-img{
   display:block;
@@ -411,7 +413,7 @@ body.menu-open .site-menu{
   text-align:center;
 }
 .detail-slogan h2{
-  font-size:10.95cqw;line-height:1.0;
+  font-size:clamp(32px,9.5cqw,44px);line-height:1.0;
   color:var(--cream);margin:0;font-weight:400;
   white-space:pre-line;
 }
@@ -421,7 +423,8 @@ body.menu-open .site-menu{
 }
 .detail-image-wrap img{width:100%;height:100%;object-fit:cover;}
 .detail-image-wrap .scrim{
-  position:absolute;inset:0;background:var(--overlay);opacity:0;
+  position:absolute;inset:0;background:var(--overlay);
+  opacity:var(--detail-scrim-opacity,0);
   transition:opacity .25s ease;
 }
 .detail-hero.overlapped .detail-image-wrap .scrim{opacity:.4;}
@@ -675,7 +678,7 @@ body.menu-open .site-menu{
 .shop-hub {
   position:relative;
   min-height:calc(100dvh - 7.46cqw);
-  padding:31.5cqw 5.97cqw 13cqw;
+  padding:9cqw 5.97cqw 13cqw;
   overflow:hidden;
 }
 .shop-hub-copy{position:relative;z-index:2;}
@@ -704,9 +707,9 @@ body.menu-open .site-menu{
 .shop-hub-doodle{
   position:absolute;
   z-index:1;
-  top:38cqw;
-  right:-4cqw;
-  width:33cqw;
+  top:14cqw;
+  right:-2cqw;
+  width:29cqw;
   opacity:.72;
   transform:rotate(4deg);
   animation:shopHubFloat 4.2s ease-in-out infinite;
@@ -716,7 +719,7 @@ body.menu-open .site-menu{
   z-index:2;
   display:grid;
   gap:3.98cqw;
-  margin-top:13cqw;
+  margin-top:10cqw;
 }
 .shop-portal{
   min-height:43cqw;

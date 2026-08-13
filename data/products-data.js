@@ -1,25 +1,25 @@
 export const PRODUCTS = {
   accessory: [
-    { id:"accessory-02-2", image:"/assets/products/accessory/accessory-02__frenchie lover__magnet.png", name:"frenchie lover", tag:"magnet", url:"" },
-    { id:"accessory-01", image:"/assets/products/accessory/accessory-control-yourself.png", name:"CONTROL YOURSELF", tag:"magnet", url:"" },
+    { id:"accessory-item", image:"/assets/products/accessory/accessory__CONTROL YOURSELF__magnet.png", name:"CONTROL YOURSELF", tag:"magnet", url:"" },
+    { id:"accessory-02", image:"/assets/products/accessory/accessory-02__FRENCHIE LOVER__magnet.png", name:"FRENCHIE LOVER", tag:"magnet", url:"" }
   ],
   art: [
-    { id:"art-01", image:"/assets/products/art/product-1.png", name:"PRODUCT NAME", tag:"print", url:"" },
-    { id:"art-02", image:"/assets/products/art/product-2.png", name:"PRODUCT NAME", tag:"print", url:"" },
-    { id:"art-03", image:"/assets/products/art/product-3.png", name:"PRODUCT NAME", tag:"print", url:"" },
-    { id:"art-04", image:"/assets/products/art/product-4.png", name:"PRODUCT NAME", tag:"print", url:"" },
-    { id:"art-05", image:"/assets/products/art/product-5.png", name:"PRODUCT NAME", tag:"print", url:"" },
-    { id:"art-06", image:"/assets/products/art/product-6.png", name:"PRODUCT NAME", tag:"print", url:"" }
+    { id:"art-01-2", image:"/assets/products/art/product-1__HEAVY HEAD__print.png", name:"HEAVY HEAD", tag:"print", url:"" },
+    { id:"art-02-2", image:"/assets/products/art/product-2__BLACK HEAVY HEAD__print.png", name:"BLACK HEAVY HEAD", tag:"print", url:"" },
+    { id:"art-03-2", image:"/assets/products/art/product-3__PAW-LEASE SHARE__print.png", name:"PAW-LEASE SHARE", tag:"print", url:"" },
+    { id:"art-04-2", image:"/assets/products/art/product-4__HIGH LIFE__print.png", name:"HIGH LIFE", tag:"print", url:"" },
+    { id:"art-05-2", image:"/assets/products/art/product-5__SHADOW OF ME__print.png", name:"SHADOW OF ME", tag:"print", url:"" },
+    { id:"art-06-2", image:"/assets/products/art/product-6__WEIGHT OF LOVE__print.png", name:"WEIGHT OF LOVE", tag:"print", url:"" }
   ],
   home: [
-    { id:"home-01", image:"/assets/products/home/home-1.png", name:"SLEEPY FRENCHIE", tag:"cushion", url:"" },
-    { id:"home-02", image:"/assets/products/home/home-2.png", name:"RICH FLOWER", tag:"cushion", url:"" },
-    { id:"home-03", image:"/assets/products/home/home-3.png", name:"HUG HUG", tag:"cushion", url:"" },
-    { id:"home-04", image:"/assets/products/home/home-4.png", name:"CRAZY DOG", tag:"cushion", url:"" },
-    { id:"home-05", image:"/assets/products/home/home-5.png", name:"HEAVY HEAD", tag:"cushion", url:"" },
-    { id:"home-06", image:"/assets/products/home/home-6.png", name:"PINK BEDLINGTON", tag:"cushion", url:"" },
-    { id:"home-07", image:"/assets/products/home/home-7.png", name:"PRODUCT NAME", tag:"cushion", url:"" },
-    { id:"home-08", image:"/assets/products/home/home-8.png", name:"PRODUCT NAME", tag:"cushion", url:"" }
+    { id:"home-01-2", image:"/assets/products/home/home-1__NAP TIME__cushion.png", name:"NAP TIME", tag:"cushion", url:"" },
+    { id:"home-02-2", image:"/assets/products/home/home-2__RICH FLOWER__cushion.png", name:"RICH FLOWER", tag:"cushion", url:"" },
+    { id:"home-03-2", image:"/assets/products/home/home-3__HUG HUG__cushion.png", name:"HUG HUG", tag:"cushion", url:"" },
+    { id:"home-04-2", image:"/assets/products/home/home-4__CRAZY DOG__cushion.png", name:"CRAZY DOG", tag:"cushion", url:"" },
+    { id:"home-05-2", image:"/assets/products/home/home-5__HEAVY HEAD__cushion.png", name:"HEAVY HEAD", tag:"cushion", url:"" },
+    { id:"home-06-2", image:"/assets/products/home/home-6__PINK BEDLINGTON__cushion.png", name:"PINK BEDLINGTON", tag:"cushion", url:"" },
+    { id:"home-07-2", image:"/assets/products/home/home-7__PIGGY DOG__rug.png", name:"PIGGY DOG", tag:"rug", url:"" },
+    { id:"home-08-2", image:"/assets/products/home/home-8__SLEEPY BEDLINGTON__rug.png", name:"SLEEPY BEDLINGTON", tag:"rug", url:"" }
   ],
   handcraft: [
   ],

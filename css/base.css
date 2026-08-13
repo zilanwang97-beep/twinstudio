@@ -11,6 +11,32 @@
 }
 
 html { background: var(--brown); }
+
+/* Shared brand CTA; page-specific classes only control size and placement. */
+.brand-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid var(--cream-soft);
+  background: var(--cream-soft);
+  color: var(--brown);
+  font-family: "Futura Extra Black Condensed", Impact, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.brand-cta:hover {
+  border-color: var(--cream);
+  background: var(--cream);
+}
+.brand-cta:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 4px;
+}
 body { margin: 0; background: var(--brown); color: var(--cream); }
 button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible { outline: 3px solid var(--cream); outline-offset: 4px; }

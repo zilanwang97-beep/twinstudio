@@ -226,20 +226,13 @@
   }
 
   .mobile-home-story-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     gap: 3cqw;
     min-width: 36cqw;
     min-height: 7.5cqw;
     margin-top: 10cqw;
     margin-bottom: 10cqw;
     padding: 1.4cqw 2.5cqw;
-    color: var(--brown);
-    background: var(--cream2);
     font-size: 4cqw;
-    font-weight: 700;
-    line-height: 1;
   }
 
   .mobile-home-strip {
@@ -558,6 +551,22 @@
     padding-top: 120px;
   }
 
+  /* Detail tablet: keep the sticky stack tied to the fixed header in px. */
+  #view-detail .tabs-row {
+    top: 120px;
+    height: 68px;
+  }
+
+  #view-detail .detail-slogan {
+    top: 188px;
+    height: clamp(250px, 40cqw, 288px);
+    padding-top: 16px;
+  }
+
+  #view-detail .detail-slogan h2 {
+    font-size: clamp(44px, 7.5cqw, 54px);
+  }
+
   /* 展开菜单 */
   .site-menu {
     position: fixed;
@@ -624,7 +633,7 @@
 
   /* Footer */
   .site-footer {
-    padding: 72px 64px 60px;
+    padding: 72px 48px 60px;
   }
 
   .footer-logo-img {

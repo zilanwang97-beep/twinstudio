@@ -74,6 +74,8 @@ initMenu();
 initMobileHome();
 initStory();
 document.querySelector("#app-frame")?.addEventListener("scroll", updateDetailScrim, { passive: true });
+window.addEventListener("scroll", updateDetailScrim, { passive: true });
+window.addEventListener("resize", updateDetailScrim, { passive: true });
 onRouteChange(syncRoute);
 
 let wasDesktop = desktopQuery.matches;

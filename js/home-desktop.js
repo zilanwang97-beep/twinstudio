@@ -138,11 +138,6 @@ const lbObs = new IntersectionObserver(es => es.forEach(e => {
 }), {threshold:.18});
 document.querySelectorAll('.lb-cell').forEach(c => lbObs.observe(c));
 
-/* OUR STORY button → story page */
-document.getElementById('storyBtn').addEventListener('click', () => {
-  location.hash = 'story';
-});
-
 /* ================= easing ================= */
 const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
 const easeOutCubic = t=>1-Math.pow(1-t,3);

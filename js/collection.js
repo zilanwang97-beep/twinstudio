@@ -75,7 +75,21 @@ export function renderDetail(categoryId) {
 export function updateDetailScrim() {
   const detail = $("#view-detail");
   if (!detail.classList.contains("active")) return;
-  const imageTop = $("#detail-image-wrap").getBoundingClientRect().top;
-  const sloganBottom = $("#detail-slogan").getBoundingClientRect().bottom;
-  $("#detail-hero").classList.toggle("overlapped", imageTop < sloganBottom);
+  const image = $("#detail-image-wrap");
+  const slogan = $("#detail-slogan");
+  const hero = $("#detail-hero");
+  const imageTop = image.getBoundingClientRect().top;
+  const sloganRect = slogan.getBoundingClientRect();
+  const overlap = sloganRect.bottom - imageTop;
+
+  if (matchMedia("(max-width: 820.98px)").matches) {
+    const fadeDistance = Math.min(160, Math.max(96, sloganRect.height * 0.45));
+    const progress = Math.min(1, Math.max(0, overlap / fadeDistance));
+    hero.classList.remove("overlapped");
+    image.style.setProperty("--detail-scrim-opacity", (progress * 0.45).toFixed(3));
+    return;
+  }
+
+  image.style.removeProperty("--detail-scrim-opacity");
+  hero.classList.toggle("overlapped", overlap > 0);
 }
