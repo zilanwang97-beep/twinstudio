@@ -22,6 +22,7 @@ export const PRODUCTS = {
     { id:"home-08-2", image:"/assets/products/home/home-8__SLEEPY BEDLINGTON__rug.png", name:"SLEEPY BEDLINGTON", tag:"rug", url:"" }
   ],
   handcraft: [
+    { id:"handcraft-01", image:"/assets/products/handcraft/handcraft-01__PIGGY FRENCHIE__incense holder.png", name:"PIGGY FRENCHIE", tag:"incense holder", url:"" }
   ],
   apparel: [
     { id:"apparel-item", image:"/assets/products/apparel/apparel__coming soon__apparel.png", name:"coming soon", tag:"apparel", url:"" }
