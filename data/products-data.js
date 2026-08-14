@@ -1,7 +1,21 @@
 export const PRODUCTS = {
   accessory: [
     { id:"accessory-item", image:"/assets/products/accessory/accessory__CONTROL YOURSELF__magnet.png", name:"CONTROL YOURSELF", tag:"magnet", url:"" },
-    { id:"accessory-02", image:"/assets/products/accessory/accessory-02__FRENCHIE LOVER__magnet.png", name:"FRENCHIE LOVER", tag:"magnet", url:"" }
+    { id:"accessory-02-2", image:"/assets/products/accessory/accessory-02__BEDLINGTON LOVER__phonecase.png", name:"BEDLINGTON LOVER", tag:"phonecase", url:"" },
+    { id:"accessory-03", image:"/assets/products/accessory/accessory-03__BEDLINGTON MIRROR__phonecase.png", name:"BEDLINGTON MIRROR", tag:"phonecase", url:"" },
+    { id:"accessory-04", image:"/assets/products/accessory/accessory-04__BEDLINGTON LOVER__phonecase.png", name:"BEDLINGTON LOVER", tag:"phonecase", url:"" },
+    { id:"accessory-05", image:"/assets/products/accessory/accessory-05__FRENCHIE DISSECT__phonecase.png", name:"FRENCHIE DISSECT", tag:"phonecase", url:"" },
+    { id:"accessory-06-2", image:"/assets/products/accessory/accessory-06__FRENCHIE LOVER__phonecase.png", name:"FRENCHIE LOVER", tag:"phonecase", url:"" },
+    { id:"accessory-07", image:"/assets/products/accessory/accessory-07__BEDLINGTON LOVER__phonecase.png", name:"BEDLINGTON LOVER", tag:"phonecase", url:"" },
+    { id:"accessory-08", image:"/assets/products/accessory/accessory-08__FRENCHIE MIND__tote bag.png", name:"FRENCHIE MIND", tag:"tote bag", url:"" },
+    { id:"accessory-09", image:"/assets/products/accessory/accessory-09__DISGUISER__tote bag.png", name:"DISGUISER", tag:"tote bag", url:"" },
+    { id:"accessory-10", image:"/assets/products/accessory/accessory-10__HEAVY HEAD__tote bag.png", name:"HEAVY HEAD", tag:"tote bag", url:"" },
+    { id:"accessory-11", image:"/assets/products/accessory/accessory-11__DACHSHUND__tote bag.png", name:"DACHSHUND", tag:"tote bag", url:"" },
+    { id:"accessory-12", image:"/assets/products/accessory/accessory-12__WEIGHT OF LOVE__tote bag.png", name:"WEIGHT OF LOVE", tag:"tote bag", url:"" },
+    { id:"accessory-13", image:"/assets/products/accessory/accessory-13__FRENCHIE MIND__pouch.png", name:"FRENCHIE MIND", tag:"pouch", url:"" },
+    { id:"accessory-14", image:"/assets/products/accessory/accessory-14__SLEEPY FRENCHIE__pin.png", name:"SLEEPY FRENCHIE", tag:"pin", url:"" },
+    { id:"accessory-15", image:"/assets/products/accessory/accessory-15__SLEEPY FRENCHIE__pin.png", name:"SLEEPY FRENCHIE", tag:"pin", url:"" },
+    { id:"accessory-16", image:"/assets/products/accessory/accessory-16__NOT TODAY__magnet.png", name:"NOT TODAY", tag:"magnet", url:"" }
   ],
   art: [
     { id:"art-01-2", image:"/assets/products/art/product-1__HEAVY HEAD__print.png", name:"HEAVY HEAD", tag:"print", url:"" },
@@ -19,17 +33,27 @@ export const PRODUCTS = {
     { id:"home-05-2", image:"/assets/products/home/home-5__HEAVY HEAD__cushion.png", name:"HEAVY HEAD", tag:"cushion", url:"" },
     { id:"home-06-2", image:"/assets/products/home/home-6__PINK BEDLINGTON__cushion.png", name:"PINK BEDLINGTON", tag:"cushion", url:"" },
     { id:"home-07-2", image:"/assets/products/home/home-7__PIGGY DOG__rug.png", name:"PIGGY DOG", tag:"rug", url:"" },
-    { id:"home-08-2", image:"/assets/products/home/home-8__SLEEPY BEDLINGTON__rug.png", name:"SLEEPY BEDLINGTON", tag:"rug", url:"" }
+    { id:"home-08-2", image:"/assets/products/home/home-8__SLEEPY BEDLINGTON__rug.png", name:"SLEEPY BEDLINGTON", tag:"rug", url:"" },
+    { id:"home-09", image:"/assets/products/home/home-9__ENERGY SAVING MODE__mug.png", name:"ENERGY SAVING MODE", tag:"mug", url:"" },
+    { id:"home-10", image:"/assets/products/home/home-10__HANDSOME DOG__bottle.png", name:"HANDSOME DOG", tag:"bottle", url:"" },
+    { id:"home-11", image:"/assets/products/home/home-11__SLEEPY FRENCHIE__bottle.png", name:"SLEEPY FRENCHIE", tag:"bottle", url:"" }
   ],
   handcraft: [
-    { id:"handcraft-01", image:"/assets/products/handcraft/handcraft-01__PIGGY FRENCHIE__incense holder.png", name:"PIGGY FRENCHIE", tag:"incense holder", url:"" }
+    { id:"handcraft-01", image:"/assets/products/handcraft/handcraft-01__PIGGY FRENCHIE__incense holder.png", name:"PIGGY FRENCHIE", tag:"incense holder", url:"" },
+    { id:"handcraft-02", image:"/assets/products/handcraft/handcraft-02__RICH FLOWER__incense holder.png", name:"RICH FLOWER", tag:"incense holder", url:"" },
+    { id:"handcraft-03", image:"/assets/products/handcraft/handcraft-03__PINK FRENCHIE__decoration.png", name:"PINK FRENCHIE", tag:"decoration", url:"" },
+    { id:"handcraft-04", image:"/assets/products/handcraft/handcraft-04__BLUE ANGEL__decoration.png", name:"BLUE ANGEL", tag:"decoration", url:"" },
+    { id:"handcraft-05", image:"/assets/products/handcraft/handcraft-05__BROWN ANGEL__decoration.png", name:"BROWN ANGEL", tag:"decoration", url:"" },
+    { id:"handcraft-06", image:"/assets/products/handcraft/handcraft-06__BEIGE ANGEL__decoration.png", name:"BEIGE ANGEL", tag:"decoration", url:"" },
+    { id:"handcraft-07", image:"/assets/products/handcraft/handcraft-07__WOODEN FISH__incense holder.png", name:"WOODEN FISH", tag:"incense holder", url:"" }
   ],
   apparel: [
-    { id:"apparel-item", image:"/assets/products/apparel/apparel__coming soon__apparel.png", name:"coming soon", tag:"apparel", url:"" }
+    { id:"apparel-01", image:"/assets/products/apparel/apparel-01__FRENCHIE LOVER__scarf.png", name:"FRENCHIE LOVER", tag:"scarf", url:"" },
+    { id:"apparel-02", image:"/assets/products/apparel/apparel-02__coming soon__apparel.png", name:"coming soon", tag:"apparel", url:"" }
   ],
   doggoods: [
-    { id:"doggoods-item-2", image:"/assets/products/doggoods/doggoods__coming soon__doggoods.png", name:"coming soon", tag:"doggoods", url:"" },
-    { id:"doggoods-item", image:"/assets/products/doggoods/doggoods__poop bag__dog goods.png", name:"poop bag", tag:"dog goods", url:"" }
+    { id:"doggoods-item-3", image:"/assets/products/doggoods/doggoods__COMING SOON__dog goods.png", name:"COMING SOON", tag:"dog goods", url:"" },
+    { id:"doggoods-item-4", image:"/assets/products/doggoods/doggoods__POOP BAG__dog goods.png", name:"POOP BAG", tag:"dog goods", url:"" }
   ]
 };
 export const CATEGORIES = [
