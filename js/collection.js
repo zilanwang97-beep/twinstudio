@@ -55,11 +55,11 @@ export function renderDetail(categoryId) {
   });
 
   $("#product-grid").innerHTML = products.map((product, index) => `
-    <article class="product-card ${index >= 4 ? "hidden-item" : ""}">
+    <article class="product-card ${index >= 8 ? "hidden-item" : ""}">
       <span class="badge">${category.label}</span>
-      <a class="thumb" href="${product.url || "#"}" ${product.url ? "" : "aria-disabled=\"true\""}>
+      <div class="thumb">
         <img src="${product.image}" alt="${product.name}" loading="lazy">
-      </a>
+      </div>
       <div class="product-meta">
         <h3 class="pname">${product.name}</h3>
         <p class="ptag">${product.tag}</p>
@@ -68,8 +68,8 @@ export function renderDetail(categoryId) {
   `).join("");
 
   const loadMore = $("#load-more-btn");
-  loadMore.disabled = products.length <= 4;
-  $(".label", loadMore).textContent = products.length <= 4 ? "ALL ITEMS" : "LOAD MORE";
+  loadMore.disabled = products.length <= 8;
+  $(".label", loadMore).textContent = products.length <= 8 ? "ALL ITEMS" : "LOAD MORE";
 }
 
 export function updateDetailScrim() {

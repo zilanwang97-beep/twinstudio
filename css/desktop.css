@@ -334,9 +334,16 @@ body[data-route="detail"] .site-header {
     height: 21px;
     font-size: 10px;
   }
-  .app-frame .product-meta { left: 12px; right: 12px; bottom: 12px; }
-  .app-frame .product-meta .pname { font-size: 15px; margin-bottom: 4px; }
-  .app-frame .product-meta .ptag { font-size: 14px; }
+  .app-frame .product-card .thumb {
+    top: 14%;
+    height: 65%;
+  }
+  .app-frame .product-meta { left: 12px; right: 12px; bottom: 8px; }
+  .app-frame .product-meta .pname {
+    font-size: clamp(11px, 1vw, 15px);
+    margin-bottom: 2px;
+  }
+  .app-frame .product-meta .ptag { font-size: clamp(10px, .9vw, 13px); }
   .app-frame .load-more-wrap { display: none; }
   .app-frame #view-detail .icon-strip { margin-top: 3vw; }
 

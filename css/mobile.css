@@ -514,6 +514,21 @@
     --maxw: 720px;
   }
 
+  /* Tablet home: keep the existing fall/landing animation, but give the
+     larger canvas collision-safe starting positions. */
+  .mh-bulldog   { left: 18%; top: 10%; width: 22%; }
+  .mh-stretch   { left: 53%; top: 11%; width: 28%; }
+  .mh-banana    { left: 12%; top: 30%; width: 12%; }
+  .mh-photo-one { left: 43%; top: 27%; width: 16%; }
+  .mh-teddy     { left: 83%; top: 27%; width: 8%; }
+  .mh-bonehead  { left: 20%; top: 41%; width: 13%; }
+  .mh-frenchie  { left: 55%; top: 41%; width: 21%; }
+  .mh-dachshund { left: 12%; top: 54%; width: 13%; }
+  .mh-pig       { left: 45%; top: 54%; width: 13%; }
+  .mh-photo-zero{ left: 80%; top: 53%; width: 15%; }
+  .mh-photo-two { left: 20%; top: 67%; width: 16%; }
+  .mh-zebra     { left: 54%; top: 65%; width: 25%; }
+
   /* 平板页面主体 */
   .app-frame {
     width: 100%;
