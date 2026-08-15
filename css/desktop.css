@@ -114,11 +114,12 @@
   }
   .app-frame #view-collection .shopnow-hotspot { display: none; }
   .app-frame #view-collection .shopnow-desktop {
-    gap: 0.4rem;
+    gap: 0.5rem;
     margin: 1.6vw auto 0;
-    min-width: clamp(138px, 12.8vw, 154px);
-    padding: 0.3rem 0.65rem;
-    font-size: clamp(18px, 1.3vw, 20px);
+    width: clamp(138px, 12.8vw, 154px);
+    height: 42px;
+    padding: 0 0.9rem;
+    font-size: clamp(16px, 1.15vw, 18px);
     transform: translateX(21vw);
   }
 

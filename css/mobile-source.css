@@ -283,9 +283,10 @@ body.menu-open .site-menu{
 /* Real CTA in the original SHOP NOW artwork slot. */
 .shopnow-hotspot{
   position:absolute;
-  left:38.6%;top:84.4%;width:26.4%;height:7%;
-  gap:3cqw;padding:1.4cqw 2.5cqw;
-  font-size:4cqw;
+  left:calc(50% - 16cqw);top:84.4%;
+  width:32cqw;height:8.5cqw;
+  gap:2cqw;padding:0 3cqw;
+  font-size:clamp(12px,3.2cqw,14px);
 }
 
 .sections{

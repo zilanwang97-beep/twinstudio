@@ -60,17 +60,16 @@ export const PRODUCTS = {
   apparel: [
     { id:"apparel-01", image:"/assets/products/apparel/apparel-01__FRENCHIE LOVER__scarf.png", name:"FRENCHIE LOVER", tag:"scarf", url:"" },
     { id:"apparel-02-2", image:"/assets/products/apparel/apparel-02__BEDLINGTON LOGO__tshirt.png", name:"BEDLINGTON LOGO", tag:"tshirt", url:"" },
-    { id:"apparel-03", image:"/assets/products/apparel/apparel-03_SIT__tshirt.png", name:"tshirt", tag:"apparel", url:"" },
+    { id:"apparel-03-2", image:"/assets/products/apparel/apparel-03__SIT__tshirt.png", name:"SIT", tag:"tshirt", url:"" },
     { id:"apparel-04", image:"/assets/products/apparel/apparel-04__SLEEPY FRENCHIE__tshirt.png", name:"SLEEPY FRENCHIE", tag:"tshirt", url:"" },
     { id:"apparel-05", image:"/assets/products/apparel/apparel-05__LOGO HEAD BLACK__hat.png", name:"LOGO HEAD BLACK", tag:"hat", url:"" },
     { id:"apparel-06", image:"/assets/products/apparel/apparel-06__LOGO HEAD BEIGE__hat.png", name:"LOGO HEAD BEIGE", tag:"hat", url:"" },
     { id:"apparel-07", image:"/assets/products/apparel/apparel-07__CONTROL YOUSELF__tshirt.png", name:"CONTROL YOUSELF", tag:"tshirt", url:"" },
-    { id:"apparel-08", image:"/assets/products/apparel/apparel-08__coming soon__apparel.png", name:"coming soon", tag:"apparel", url:"" },
-    { id:"apparel-02", image:"/assets/products/apparel/apparel-02__coming soon__apparel.png", name:"coming soon", tag:"apparel", url:"" }
+    { id:"apparel-08-2", image:"/assets/products/apparel/apparel-08__COMING SOON__apparel.png", name:"COMING SOON", tag:"apparel", url:"" }
   ],
   doggoods: [
-    { id:"doggoods-item-3", image:"/assets/products/doggoods/doggoods__COMING SOON__dog goods.png", name:"COMING SOON", tag:"dog goods", url:"" },
-    { id:"doggoods-item-4", image:"/assets/products/doggoods/doggoods__POOP BAG__dog goods.png", name:"POOP BAG", tag:"dog goods", url:"" }
+    { id:"doggoods-01", image:"/assets/products/doggoods/doggoods-01__POOP BAG__dog goods.png", name:"POOP BAG", tag:"dog goods", url:"" },
+    { id:"doggoods-02", image:"/assets/products/doggoods/doggoods-02__COMING SOON__dog goods.png", name:"COMING SOON", tag:"dog goods", url:"" }
   ]
 };
 export const CATEGORIES = [

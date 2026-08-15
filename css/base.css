@@ -29,6 +29,12 @@ html { background: var(--brown); }
   white-space: nowrap;
   cursor: pointer;
 }
+.brand-cta > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 .brand-cta:hover {
   border-color: var(--cream);
   background: var(--cream);

@@ -234,13 +234,13 @@
   }
 
   .mobile-home-story-link {
-    gap: 3cqw;
-    min-width: 36cqw;
-    min-height: 7.5cqw;
+    gap: 2cqw;
+    width: 32cqw;
+    height: 8.5cqw;
     margin-top: 10cqw;
     margin-bottom: 10cqw;
-    padding: 1.4cqw 2.5cqw;
-    font-size: 4cqw;
+    padding: 0 3cqw;
+    font-size: clamp(12px, 3.2cqw, 14px);
   }
 
   .mobile-home-strip {

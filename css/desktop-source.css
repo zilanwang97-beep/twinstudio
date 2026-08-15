@@ -256,9 +256,10 @@
   #philosophy .heading{display:block;width:100%;height:auto;}
   /* Real CTA positioned in the former artwork button slot. */
   #storyBtn{
-    position:absolute;left:64.8%;top:92%;width:14%;height:7%;
-    gap:.4rem;padding:.3rem .65rem;
-    font-size:clamp(18px,1.3vw,20px);
+    position:absolute;left:64.8%;top:92%;
+    width:clamp(138px,12.8vw,154px);height:42px;
+    gap:.5rem;padding:0 .9rem;
+    font-size:clamp(16px,1.15vw,18px);
   }
 
   #marquee{
