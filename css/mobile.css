@@ -7,7 +7,15 @@
   .view.active { display: block; }
 
   /* Keep mobile Collection cards visually identical after section-panel markup */
-  .section-visual { position: absolute; inset: 0; }
+  .section-visual {
+    position: absolute;
+    inset: 0;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  .section-visual:active { opacity: .94; }
   .section-panel { display: contents; }
   .section-desc { display: none; }
   .shopnow-desktop { display: none; }

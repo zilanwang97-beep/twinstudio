@@ -10,10 +10,15 @@ export function initCollection() {
 
   sections.innerHTML = CATEGORIES.map(category => `
     <article class="section-card" id="section-${category.id}">
-      <div class="section-visual">
+      <a
+        class="section-visual"
+        href="#detail/${category.id}"
+        data-category="${category.id}"
+        aria-label="Explore ${category.label} collection"
+      >
         <img src="${category.hero}" alt="${category.label}" loading="lazy">
         <div class="section-slogan marker">${category.slogan}</div>
-      </div>
+      </a>
       <div class="section-panel">
         <h2 class="section-caption futura">${category.label}</h2>
         <p class="section-desc">${category.blurb || ""}</p>
@@ -56,13 +61,12 @@ export function renderDetail(categoryId) {
 
   $("#product-grid").innerHTML = products.map((product, index) => `
     <article class="product-card ${index >= 8 ? "hidden-item" : ""}">
-      <span class="badge">${category.label}</span>
+      <span class="badge">${product.tag}</span>
       <div class="thumb">
         <img src="${product.image}" alt="${product.name}" loading="lazy">
       </div>
       <div class="product-meta">
         <h3 class="pname">${product.name}</h3>
-        <p class="ptag">${product.tag}</p>
       </div>
     </article>
   `).join("");

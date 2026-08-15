@@ -330,20 +330,21 @@ body[data-route="detail"] .site-header {
   .app-frame .badge {
     top: 10px;
     left: 10px;
-    width: 100px;
+    width: auto;
+    min-width: 100px;
     height: 21px;
+    padding-inline: 10px;
     font-size: 10px;
   }
   .app-frame .product-card .thumb {
-    top: 14%;
-    height: 65%;
+    top: 15%;
+    height: 67%;
   }
-  .app-frame .product-meta { left: 12px; right: 12px; bottom: 8px; }
+  .app-frame .product-meta { left: 12px; right: 12px; bottom: 14px; }
   .app-frame .product-meta .pname {
     font-size: clamp(11px, 1vw, 15px);
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
-  .app-frame .product-meta .ptag { font-size: clamp(10px, .9vw, 13px); }
   .app-frame .load-more-wrap { display: none; }
   .app-frame #view-detail .icon-strip { margin-top: 3vw; }
 
@@ -594,11 +595,11 @@ body[data-route="detail"] .site-header {
     font-size: clamp(17px, 1.25vw, 23px);
   }
   .app-frame .shop-hub-doodle {
-    top: auto;
+    top: 44%;
     right: auto;
-    left: clamp(365px, 29vw, 500px);
-    bottom: clamp(105px, 8vw, 130px);
-    width: clamp(125px, 10vw, 170px);
+    left: 62%;
+    bottom: auto;
+    width: clamp(160px, 13vw, 220px);
   }
   .app-frame .shop-portals {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -632,10 +633,10 @@ body[data-route="detail"] .site-header {
     }
     .app-frame .shop-hub-copy { max-width: 620px; }
     .app-frame .shop-hub-doodle {
-      left: auto;
-      right: 6vw;
+      left: 60%;
+      right: auto;
       bottom: auto;
-      top: 48px;
+      top: 43%;
     }
     .app-frame .shop-portals {
       margin-top: 48px;
