@@ -16,7 +16,23 @@
     touch-action: manipulation;
   }
   .section-visual:active { opacity: .94; }
-  .section-panel { display: contents; }
+  .section-panel {
+    position: absolute;
+    left: 3cqw;
+    right: 3.08cqw;
+    bottom: 1.9cqw;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3cqw;
+  }
+  .section-panel .section-caption,
+  .section-panel .explore-btn {
+    position: static;
+    flex: 0 0 auto;
+  }
+  .section-panel .section-caption { margin: 0; }
   .section-desc { display: none; }
   .shopnow-desktop { display: none; }
 
@@ -240,7 +256,7 @@
     margin-top: 10cqw;
     margin-bottom: 10cqw;
     padding: 0 3cqw;
-    font-size: clamp(12px, 3.2cqw, 14px);
+    font-size: clamp(14px, 3.7cqw, 16px);
   }
 
   .mobile-home-strip {

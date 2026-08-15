@@ -18,8 +18,8 @@ html { background: var(--brown); }
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border: 1px solid var(--cream-soft);
-  background: var(--cream-soft);
+  border: 1px solid var(--cream2, var(--cream));
+  background: var(--cream2, var(--cream));
   color: var(--brown);
   font-family: "Futura Extra Black Condensed", Impact, sans-serif;
   font-weight: 400;
@@ -36,8 +36,8 @@ html { background: var(--brown); }
   line-height: 1;
 }
 .brand-cta:hover {
-  border-color: var(--cream);
-  background: var(--cream);
+  border-color: var(--cream2, var(--cream));
+  background: var(--cream2, var(--cream));
 }
 .brand-cta:focus-visible {
   outline: 2px solid var(--cream);

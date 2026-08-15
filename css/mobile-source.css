@@ -286,7 +286,7 @@ body.menu-open .site-menu{
   left:calc(50% - 16cqw);top:84.4%;
   width:32cqw;height:8.5cqw;
   gap:2cqw;padding:0 3cqw;
-  font-size:clamp(12px,3.2cqw,14px);
+  font-size:clamp(14px,3.7cqw,16px);
 }
 
 .sections{
@@ -378,12 +378,12 @@ body.menu-open .site-menu{
   position: relative;
 }
 
-/* category tabs: band from y102 to y170 (68px), no border */
+/* category tabs: compact band directly below the fixed header */
 .tabs-row{
   position:sticky;z-index:45;
   top:25.37cqw;
   margin-top:-3.98cqw;
-  height:16.92cqw;
+  height:12.44cqw;
   display:flex;align-items:center;gap:3.7cqw;
   padding:0 4.98cqw;
   background:var(--brown);
@@ -402,13 +402,13 @@ body.menu-open .site-menu{
   content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--cream);
 }
 
-/* hero: sticky slogan (top 170px) + image in flow behind it */
+/* hero: sticky slogan begins immediately after the compact tabs */
 .detail-hero{
   position:relative;
 }
 .detail-slogan{
   position:sticky;
-  top:42.29cqw;                          /* 170px = header 102 + tabs 68 */
+  top:37.81cqw;                          /* header 25.37cqw + tabs 12.44cqw */
   z-index:20;
   height:55.22cqw;                       /* 222px: text 177 + 45 gap */
   padding-top:3cqw;                      /* room for Pizza-font ascenders */

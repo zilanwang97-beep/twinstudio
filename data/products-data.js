@@ -64,8 +64,7 @@ export const PRODUCTS = {
     { id:"apparel-04", image:"/assets/products/apparel/apparel-04__SLEEPY FRENCHIE__tshirt.png", name:"SLEEPY FRENCHIE", tag:"tshirt", url:"" },
     { id:"apparel-05", image:"/assets/products/apparel/apparel-05__LOGO HEAD BLACK__hat.png", name:"LOGO HEAD BLACK", tag:"hat", url:"" },
     { id:"apparel-06", image:"/assets/products/apparel/apparel-06__LOGO HEAD BEIGE__hat.png", name:"LOGO HEAD BEIGE", tag:"hat", url:"" },
-    { id:"apparel-07", image:"/assets/products/apparel/apparel-07__CONTROL YOUSELF__tshirt.png", name:"CONTROL YOUSELF", tag:"tshirt", url:"" },
-    { id:"apparel-08-2", image:"/assets/products/apparel/apparel-08__COMING SOON__apparel.png", name:"COMING SOON", tag:"apparel", url:"" }
+    { id:"apparel-07", image:"/assets/products/apparel/apparel-07__CONTROL YOUSELF__tshirt.png", name:"CONTROL YOUSELF", tag:"tshirt", url:"" }
   ],
   doggoods: [
     { id:"doggoods-01", image:"/assets/products/doggoods/doggoods-01__POOP BAG__dog goods.png", name:"POOP BAG", tag:"dog goods", url:"" },
