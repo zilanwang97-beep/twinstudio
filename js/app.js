@@ -3,6 +3,7 @@ import { initMenu } from "./menu.js";
 import { onRouteChange } from "./router.js";
 import { initMobileHome } from "./home-mobile.js";
 import { initStory } from "./story.js";
+import { initI18n, applyLang } from "./i18n.js";
 
 const desktopQuery = matchMedia("(min-width: 821px)");
 let desktopHomeLoaded = false;
@@ -71,6 +72,7 @@ function syncRoute({ page, category }) {
 
 initCollection();
 initMenu();
+initI18n();
 initMobileHome();
 initStory();
 document.querySelector("#app-frame")?.addEventListener("scroll", updateDetailScrim, { passive: true });

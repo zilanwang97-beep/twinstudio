@@ -1,0 +1,65 @@
+/* ============================================================
+   Twinstudio — 语言切换按钮
+   放置位置：css/i18n.css
+   必须最后加载（在 motion.css 之后）
+
+   注意：这里刻意「不」覆盖任何字体。
+   浏览器会逐字回退——英文字符继续用原本的手写体 / Futura，
+   中文字符因为字库里没有，自动落到系统中文字体。
+   一旦在这里写 font-family，就会把仍是英文的手写标题一起改掉。
+   ============================================================ */
+
+   .lang-toggle {
+    position: fixed;
+    z-index: 9999;                /* 保证在 header 之上，可点击 */
+    transform: translateY(-50%);  /* 与汉堡按钮垂直居中对齐 */
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 28px;
+    height: 28px;
+    padding: 0;
+  
+    background: none;
+    border: 0;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+  
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #F7ECD8;
+  
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+  
+  /* JS 测量完成前先藏起来，避免闪一下出现在左上角 */
+  .lang-toggle:not([data-placed]) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .lang-toggle:hover,
+  .lang-toggle:focus-visible {
+    opacity: 1;
+  }
+  
+  .lang-toggle:focus-visible {
+    outline: 2px solid #F7ECD8;
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+  
+  @media (min-width: 821px) {
+    .lang-toggle {
+      font-size: 16px;
+      min-width: 30px;
+      height: 30px;
+    }
+  }
